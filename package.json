@@ -1,0 +1,31 @@
+{
+  "name": "h-bar",
+  "version": "1.0.0",
+  "description": "Light Announcement Bar, Hello Bar with tailwindcss",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReeceM/h-bar.git"
+  },
+  "keywords": [
+    "hello bar",
+    "announcement bar",
+    "tailwindcss",
+    "wp"
+  ],
+  "author": "ReeceM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ReeceM/h-bar/issues"
+  },
+  "homepage": "https://github.com/ReeceM/h-bar#readme",
+  "devDependencies": {
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}

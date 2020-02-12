@@ -1,0 +1,10 @@
+# dependencies
+node_modules
+
+# production
+build
+npm-debug.log
+
+# misc
+.vscode
+.DS_Store

@@ -1,6 +1,6 @@
 {
   "name": "h-bar",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Light Announcement Bar, Hello Bar with tailwindcss",
   "main": "index.js",
   "scripts": {

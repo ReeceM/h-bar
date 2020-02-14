@@ -7,6 +7,7 @@ module.exports = {
         filename: "hBar.js",
         library: 'hBar',
         libraryTarget: 'umd',
+        libraryExport: 'default',
     },
     mode: process.env.NODE_ENV,
     module: {

@@ -1,52 +1,32 @@
 import "./styles.css"
-import { domReady, createElement, addClasses } from "./utils";
+import { domReady, newElement } from "./utils"
+import { styling, themes } from "./config/styling"
+import { config } from './config/config'
 
-
-// let template = `
-// <div class="flex w-full text-sm py-2 md:px-20 px-2 items-center justify-between bg-gray-900 text-gray-100">
-//     <div class="flex items-center">
-//         <span class="px-2 mx-2 bg-white text-gray-900 leading-relaxed tracking-wider uppercase font-semibold rounded-full text-xs">New</span>
-//         <a href="{{$link}} class="hover:underline hover:text-gray-300">{{$message}} &rightarrow;</a>
-//     </div>
-//     <div class="flex items-center">
-//         <a href="#" class="mx-5 cursor-pointer hover:underline">Docs</a>
-//         <a href="#" class="mx-5 cursor-pointer hover:underline">Support</a>
-//     </div>
-// </div>
-// `;
+process.env.APP_VERSION = 'h-bar v1.0.0'
 
 const hBar = {
-    url: '',
-    callback: null,
-    postLink: '',
-    postTitle: '',
-
-    parentClasses: 'hb-flex hb-w-full hd-flex-col md:hb-flex-row sm:hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between hb-bg-gray-900 hb-text-gray-100',
-    linksParent: 'hb-flex hb-items-center',
-    badge: 'hb-px-2 hb-mx-2 hb-bg-white hb-text-gray-900 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs',
-    postTitleClass: 'hover:hb-underline hover:hb-text-gray-300',
-    secondaryLinks: 'hb-mx-5 hb-cursor-pointer hover:hb-underline hover:hb-text-gray-300',
-
     /**
      * Initialise the hBar package
      * @param {string} url The endpoint to get data from
      * @param {function} callback The function that is called when done
+     *
+     * @returns {hBar}
      */
-    init({ url, callback }) {
+    init({ url, onCompleted, postLink, postTitle, secondaryLinks, options, customStyles}) {
         this.url = url;
-        this.callback = callback;
+        this.config = { ...config, ...options };
+        this.styling = { ...styling, ...customStyles };
+        this.callback = onCompleted;
+        this.postLink = postLink
+        this.postTitle = postTitle
+        this.secondaryLinks = secondaryLinks
+        this.theme = this.config.theme
+        return this
     },
 
     fetchData() {
-        fetch(this.url, {
-            method: 'GET',
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            headers: {
-                'Accept': 'application/json'
-            },
-            redirect: 'follow', // manual, *follow, error
-        })
+        fetch(this.url, this.config.fetchOptions)
             .then(response => {
                 return response.json()
             })
@@ -70,45 +50,48 @@ const hBar = {
      */
     render() {
         domReady().then(() => {
-            let _hbar = createElement('div')
-            let postNoticeBody = createElement('div')
-            let badge = createElement('span')
-            let postLink = createElement('a')
 
-            let docs = createElement('a')
-            let support = createElement('a')
-            let linksBody = createElement('div')
+            let secondaryLinkList = this.createSecondaryLinks()
+            let secondaryElement = newElement('div', {
+                children: secondaryLinkList,
+                classes: `${this.styling.linkWrapper} ${themes[this.config.theme].linkWrapper}`
+            })
 
-            addClasses(_hbar, this.parentClasses)
+            let badge = newElement('span', {classes: `${this.styling.badge} ${themes[this.config.theme].badge}`})
+            let postLink = newElement('a', { classes: `${this.styling.postTitle} ${themes[this.config.theme].postTitle}` })
 
-            addClasses(postNoticeBody, this.linksParent)
-            addClasses(badge, this.badge)
-            addClasses(postLink, this.postTitleClass)
+            badge.innerText = 'NEW';
+            postLink.href = this.postLink;
+            postLink.innerText = this.postTitle;
 
-            addClasses(linksBody, this.linksParent)
-            addClasses(docs, this.secondaryLinks)
-            addClasses(support, this.secondaryLinks)
+            let postElement = newElement('div', {
+                classes: `${this.styling.linkWrapper} ${themes[this.config.theme].linkWrapper}`,
+                children: [badge, postLink]
+            })
 
-
-            docs.href = "#"
-            support.href = "#"
-            docs.textContent = "Docs"
-            support.textContent = "Support"
-            linksBody.appendChild(docs)
-            linksBody.appendChild(support)
-
-            badge.textContent = 'New'
-            postLink.href = this.postLink
-            postLink.innerHTML = `${this.postTitle} &rightarrow;`
-
-            postNoticeBody.appendChild(badge)
-            postNoticeBody.appendChild(postLink)
-
-            _hbar.appendChild(postNoticeBody)
-            _hbar.appendChild(linksBody)
+            let _hbar = newElement('div', {
+                classes: `${this.styling.wrapper} ${themes[this.config.theme].wrapper}`,
+                children: [postElement, secondaryElement]
+            })
 
             document.getElementById('h-bar').appendChild(_hbar)
         })
+    },
+
+    /**
+     * Creates the secondary links for the bar.
+     */
+    createSecondaryLinks() {
+        if (!this.secondaryLinks) return [];
+
+        return this.secondaryLinks.map(({ title, link }) => {
+                let style = `${this.styling.secondaryLink} ${themes[this.config.theme].secondaryLink}`;
+                let butter = newElement('a', { classes: style })
+                butter.href = link;
+                butter.innerText = title;
+
+                return butter;
+            }, this);
     }
 }
 

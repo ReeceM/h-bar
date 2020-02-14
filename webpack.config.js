@@ -1,10 +1,14 @@
 const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'hBar': './src/index.js',
+        'hBar.min': './src/index.js',
+    },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "hBar.js",
+        filename: "[name].js",
         library: 'hBar',
         libraryTarget: 'umd',
         libraryExport: 'default',
@@ -18,7 +22,7 @@ module.exports = {
                 use: [
                     { loader: 'style-loader'},
                     { loader: "css-loader", options: { importLoaders: 1, } },
-                    { loader: 'postcss-loader', },
+                    { loader: 'postcss-loader' },
                 ],
             },
             {
@@ -33,6 +37,12 @@ module.exports = {
                 }
               },
         ],
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new UglifyJsPlugin({
+            include: /\.min\.js$/
+        })]
     },
     plugins: [],
 }

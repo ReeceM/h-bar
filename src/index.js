@@ -3,7 +3,7 @@ import { domReady, newElement } from "./utils"
 import { styling, themes } from "./config/styling"
 import { config } from './config/config'
 
-process.env.APP_VERSION = 'h-bar v1.0.0'
+process.env.APP_VERSION = 'h-bar v0.0.5'
 
 const hBar = {
     /**

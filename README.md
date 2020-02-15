@@ -4,7 +4,7 @@ An Announcement Banner that is lightweight and based on tailwindcss for the styl
 
 <h1 align="center">
 <br>
-  <img src="https://raw.githubusercontent.com/ReeceM/h-bar/master/docs/h-bar.png" alt="h-bar announcements" width="170">
+  <img src="https://raw.githubusercontent.com/ReeceM/h-bar/master/docs/h-bar.png" alt="h-bar announcements">
   <br>
     <br>
     h-bar Announcement banner

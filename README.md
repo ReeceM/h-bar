@@ -1,8 +1,17 @@
-# hBar lightweight announcement bar
+# h-bar lightweight announcement bar
 
-An Announcement Bar that is lightweight and based on tailwindcss
+An Announcement Banner that is lightweight and based on tailwindcss for the styling
 
-The announcement bar uses native methods to make the library lightweight so that it can be loaded quickly.
+<h1 align="center">
+<br>
+  <img src="https://raw.githubusercontent.com/ReeceM/h-bar/master/docs/h-bar.png" alt="h-bar announcements" width="170">
+  <br>
+    <br>
+    h-bar Announcement banner
+  <br>
+</h1>
+
+The announcement bar uses native methods to make the library lightweight so that it can be loaded quickly, bar the webpack stuff.
 
 **Note**
 The initial version makes use of the WordPress API to be able to get the latest post.

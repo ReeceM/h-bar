@@ -38,6 +38,8 @@ Or use jsDelivr:
     ...
 ```
 
+> If you are customising the styling and overriding it with your own styling then you will also need an instance of your css or a tailwindcss file installed as only the classes needed are packaged with h-bar
+
 ## Usage
 
 You can import it directly into your javascript app or use it in the html.
@@ -66,7 +68,7 @@ You can import it directly into your javascript app or use it in the html.
 
 ### Testing
 
-_to come_ please PR...
+_to come_ please make a PR if you know how to do it on JS.
 
 ### Changelog
 
@@ -86,6 +88,10 @@ If you discover any security related issues, please email zsh.rce@gmail.com inst
 - [All Contributors](../../contributors)
 
 ## Support
+
+<a href="https://www.buymeacoffee.com/ReeceM" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S7UQ66)
 
 ## License
 

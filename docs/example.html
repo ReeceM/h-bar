@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>h-bar Demo</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="h-bar"></div>
+    <!-- HTML BELOW USED FROM: https://tailwindcomponents.com/component/simple-template -->
+    <div class="text-white mt-0 border border-blue-800 py-0 w-full h-full" style="background-image:url('https://demos.onepagelove.com/html/leno/images/header-background.jpg')">
+        <header class="flex md:justify-between p-8">
+            <div class="flex items-center">
+                <svg class="sm:w-12 w-10 inline mr-3" fill="#00c9db" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 586.5 586.5" xml:space="preserve"><polygon points="471.75,89.25 369.75,89.25 168.3,410.55 102,293.25 216.75,89.25 114.75,89.25 0,293.25 114.75,497.25 216.75,497.25 418.2,175.95 484.5,293.25 369.75,497.25 471.75,497.25 586.5,293.25"></polygon></svg>
+                <h1 class="inline text-white sm:text-3xl text-2xl font-bold"><a href="/">My Company</a></h1>
+            </div>
+            <div class="flex md:text-white">
+                <ul class="items-center pt-2 flex">
+                    <li class="ml-4 p4"><a href="">Home</a></li>
+                    <li class="ml-4 p4"><a href="">Features</a></li>
+                    <li class="ml-4 p4"><a href="">Details</a></li>
+                    <li class="ml-4 p4"><a href="">Preview</a></li>
+                    <li class="ml-4 p4"><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </header>
+        <section class="px-2 lg:px-0 mt-16 sm:mt-32 flex w-full container mx-auto pb-16">
+            <div class="w-full text-white flex justify-center md:justify-start text-center md:text-left">
+                <div class="md:w-1/2 w-full">
+                    <h2 class="leading-none font-bold text-2xl xs:text-2x1 md:text-5xl lg:6x1 uppercase">Mobile app for <span class="text-blue-400">Marketers</span></h2>
+                    <p class="mt-12 mb-12">This Landing is one is one of the easiest and feature packed marketing automation apps in the market. Download it today!</p>
+                    <button class="px-16 rounded-full bg-blue-400 text-white font-bold p-4 uppercase border-blue-500 border">Download Now!</button>
+                </div>
+                <div class="md:w-1/2 md:justify-center md:flex hidden">
+                    <img src="https://demos.onepagelove.com/html/leno/images/header-iphone.png" alt="Mobile Phone">
+                </div>
+            </div>
+        </section>
+        <section class="bg-gray-900 sm:py-32 py-16">
+            <div class="container mx-auto sm:flex-row flex-col flex ">
+                <div class="sm:w-1/3 w-full sm:mb-0 mb-16">
+                    <img src="https://demos.onepagelove.com/html/leno/images/testimonial-1.jpg" class="rounded-full w-24 h-24 mx-auto mb-2">
+                    <p class="italic text-gray-500 text-center my-3">I just finished my trial period and was so amazed with the support and results that I purchased this template.</p>
+                    <p class="font-bold  text-gray-400 text-center text-xl">Sandy Grain - Designer</p>
+                </div>
+                <div class="sm:w-1/3 w-full sm:mb-0 mb-16">
+                    <img src="https://demos.onepagelove.com/html/leno/images/testimonial-2.jpg" class="rounded-full w-24 h-24 mx-auto mb-2">
+                    <p class="italic text-gray-500 text-center my-3">Searching for a great marketing automation app was difficult but thankfully I found this template.</p>
+                    <p class="font-bold  text-gray-400 text-center text-xl">Bruce Cashman - Developer</p>
+                </div>
+                <div class="sm:w-1/3 w-full sm:mb-0 mb-16">
+                    <img src="https://demos.onepagelove.com/html/leno/images/testimonial-3.jpg" class="rounded-full w-24 h-24 mx-auto mb-2">
+                    <p class="italic text-gray-500 text-center my-3">Who would have thought that this template can provide such amazing results in just a few weeks of use.</p>
+                    <p class="font-bold  text-gray-400 text-center text-xl">Amanda Savage - Administrator</p>
+                </div>
+            </div>
+        </section>
+        <section class="bg-gray-800 py-32">
+            <div class="container mx-auto">
+                <h1 class="text-5xl font-bold uppercase text-center text-gray-300">Features</h1>
+                <div class="flex justify-center">
+                    <p class="w-1/2 text-center text-gray-300">This template was designed based on input from personal development coaches and popular trainers so it offers all</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="./dist/hBar.js"></script>
+    <script>
+        /**
+         * Below we are using the h-bar with the preset values and not from a blog.
+         */
+        hBar.init({
+            postLink: "http://localhost",
+            postTitle: "View CheX Homepage",
+            theme: 'blue',
+            secondaryLinks: [
+            {
+                title: "Docs",
+                link: "http:://docs.example.com"
+            },
+            {
+                title: "Support",
+                link: "http://help.example.com"
+            }
+            ]
+        })
+        hBar.render()
+    </script>
+</body>
+</html>

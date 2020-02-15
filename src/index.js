@@ -33,6 +33,9 @@ const hBar = {
             .then(json => {
                 if (typeof json == "object") {
                     this.normaliseResponse(json[0]);
+                    if (this.postTitle == "undefined" || this.postTitle == undefined) {
+                        return;
+                    }
                     this.render();
                 }
             });
@@ -74,6 +77,7 @@ const hBar = {
                 children: [postElement, secondaryElement]
             })
 
+            document.getElementById('h-bar').innerHTML = ""
             document.getElementById('h-bar').appendChild(_hbar)
         })
     },

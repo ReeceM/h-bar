@@ -14,7 +14,6 @@ export const config = {
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         headers: {
             'Accept': 'application/json',
-            'h-bar-version': process.env.APP_VERSION
         },
         redirect: 'follow', // manual, *follow, error
     }

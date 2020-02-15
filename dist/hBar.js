@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -212,6 +212,174 @@ var themes = {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return config; });
+/**
+ * The default configuration for the package
+ *
+ * @var {object} config
+ */
+var config = {
+  url: '',
+  theme: "gray",
+  secondaryLinks: [],
+  onCompleted: null,
+  fetchOptions: {
+    method: 'GET',
+    mode: 'cors',
+    // no-cors, *cors, same-origin
+    cache: 'no-cache',
+    // *default, no-cache, reload, force-cache, only-if-cached
+    headers: {
+      'Accept': 'application/json'
+    },
+    redirect: 'follow' // manual, *follow, error
+
+  }
+};
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
+/* harmony import */ var _config_styling__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
+/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+process.env.APP_VERSION = 'h-bar v0.0.5';
+var hBar = {
+  /**
+   * Initialise the hBar package
+   * @param {string} url The endpoint to get data from
+   * @param {function} callback The function that is called when done
+   *
+   * @returns {hBar}
+   */
+  init: function init(_ref) {
+    var url = _ref.url,
+        onCompleted = _ref.onCompleted,
+        postLink = _ref.postLink,
+        postTitle = _ref.postTitle,
+        secondaryLinks = _ref.secondaryLinks,
+        options = _ref.options,
+        customStyles = _ref.customStyles;
+    this.url = url;
+    this.config = _objectSpread({}, _config_config__WEBPACK_IMPORTED_MODULE_3__[/* config */ "a"], {}, options);
+    this.styling = _objectSpread({}, _config_styling__WEBPACK_IMPORTED_MODULE_2__[/* styling */ "a"], {}, customStyles);
+    this.callback = onCompleted;
+    this.postLink = postLink;
+    this.postTitle = postTitle;
+    this.secondaryLinks = secondaryLinks;
+    this.theme = this.config.theme;
+    return this;
+  },
+  fetchData: function fetchData() {
+    var _this = this;
+
+    fetch(this.url, this.config.fetchOptions).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      if (_typeof(json) == "object") {
+        _this.normaliseResponse(json[0]);
+
+        if (_this.postTitle == "undefined" || _this.postTitle == undefined) {
+          return;
+        }
+
+        _this.render();
+      }
+    });
+  },
+
+  /**
+   * gets the data out
+   */
+  normaliseResponse: function normaliseResponse(_ref2) {
+    var rendered = _ref2.title.rendered,
+        link = _ref2.link;
+    this.postLink = link;
+    this.postTitle = rendered;
+  },
+
+  /**
+   * Render the element.
+   */
+  render: function render() {
+    var _this2 = this;
+
+    Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* domReady */ "a"])().then(function () {
+      var secondaryLinkList = _this2.createSecondaryLinks();
+
+      var secondaryElement = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('div', {
+        children: secondaryLinkList,
+        classes: "".concat(_this2.styling.linkWrapper, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this2.config.theme].linkWrapper)
+      });
+      var badge = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('span', {
+        classes: "".concat(_this2.styling.badge, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this2.config.theme].badge)
+      });
+      var postLink = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('a', {
+        classes: "".concat(_this2.styling.postTitle, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this2.config.theme].postTitle)
+      });
+      badge.innerText = 'NEW';
+      postLink.href = _this2.postLink;
+      postLink.innerText = _this2.postTitle;
+      var postElement = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('div', {
+        classes: "".concat(_this2.styling.linkWrapper, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this2.config.theme].linkWrapper),
+        children: [badge, postLink]
+      });
+
+      var _hbar = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('div', {
+        classes: "".concat(_this2.styling.wrapper, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this2.config.theme].wrapper),
+        children: [postElement, secondaryElement]
+      });
+
+      document.getElementById('h-bar').innerHTML = "";
+      document.getElementById('h-bar').appendChild(_hbar);
+    });
+  },
+
+  /**
+   * Creates the secondary links for the bar.
+   */
+  createSecondaryLinks: function createSecondaryLinks() {
+    var _this3 = this;
+
+    if (!this.secondaryLinks) return [];
+    return this.secondaryLinks.map(function (_ref3) {
+      var title = _ref3.title,
+          link = _ref3.link;
+      var style = "".concat(_this3.styling.secondaryLink, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this3.config.theme].secondaryLink);
+      var butter = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('a', {
+        classes: style
+      });
+      butter.href = link;
+      butter.innerText = title;
+      return butter;
+    }, this);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (hBar);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(4)))
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -399,171 +567,6 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-
-/***/ }),
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return config; });
-/**
- * The default configuration for the package
- *
- * @var {object} config
- */
-var config = {
-  url: '',
-  theme: "gray",
-  secondaryLinks: [],
-  onCompleted: null,
-  fetchOptions: {
-    method: 'GET',
-    mode: 'cors',
-    // no-cors, *cors, same-origin
-    cache: 'no-cache',
-    // *default, no-cache, reload, force-cache, only-if-cached
-    headers: {
-      'Accept': 'application/json',
-      'h-bar-version': process.env.APP_VERSION
-    },
-    redirect: 'follow' // manual, *follow, error
-
-  }
-};
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_css__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var _config_styling__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
-/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-process.env.APP_VERSION = 'h-bar v1.0.0';
-var hBar = {
-  /**
-   * Initialise the hBar package
-   * @param {string} url The endpoint to get data from
-   * @param {function} callback The function that is called when done
-   *
-   * @returns {hBar}
-   */
-  init: function init(_ref) {
-    var url = _ref.url,
-        onCompleted = _ref.onCompleted,
-        postLink = _ref.postLink,
-        postTitle = _ref.postTitle,
-        secondaryLinks = _ref.secondaryLinks,
-        options = _ref.options,
-        customStyles = _ref.customStyles;
-    this.url = url;
-    this.config = _objectSpread({}, _config_config__WEBPACK_IMPORTED_MODULE_3__[/* config */ "a"], {}, options);
-    this.styling = _objectSpread({}, _config_styling__WEBPACK_IMPORTED_MODULE_2__[/* styling */ "a"], {}, customStyles);
-    this.callback = onCompleted;
-    this.postLink = postLink;
-    this.postTitle = postTitle;
-    this.secondaryLinks = secondaryLinks;
-    this.theme = this.config.theme;
-    return this;
-  },
-  fetchData: function fetchData() {
-    var _this = this;
-
-    fetch(this.url, this.config.fetchOptions).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      if (_typeof(json) == "object") {
-        _this.normaliseResponse(json[0]);
-
-        _this.render();
-      }
-    });
-  },
-
-  /**
-   * gets the data out
-   */
-  normaliseResponse: function normaliseResponse(_ref2) {
-    var rendered = _ref2.title.rendered,
-        link = _ref2.link;
-    this.postLink = link;
-    this.postTitle = rendered;
-  },
-
-  /**
-   * Render the element.
-   */
-  render: function render() {
-    var _this2 = this;
-
-    Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* domReady */ "a"])().then(function () {
-      var secondaryLinkList = _this2.createSecondaryLinks();
-
-      var secondaryElement = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('div', {
-        children: secondaryLinkList,
-        classes: "".concat(_this2.styling.linkWrapper, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this2.config.theme].linkWrapper)
-      });
-      var badge = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('span', {
-        classes: "".concat(_this2.styling.badge, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this2.config.theme].badge)
-      });
-      var postLink = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('a', {
-        classes: "".concat(_this2.styling.postTitle, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this2.config.theme].postTitle)
-      });
-      badge.innerText = 'NEW';
-      postLink.href = _this2.postLink;
-      postLink.innerText = _this2.postTitle;
-      var postElement = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('div', {
-        classes: "".concat(_this2.styling.linkWrapper, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this2.config.theme].linkWrapper),
-        children: [badge, postLink]
-      });
-
-      var _hbar = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('div', {
-        classes: "".concat(_this2.styling.wrapper, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this2.config.theme].wrapper),
-        children: [postElement, secondaryElement]
-      });
-
-      document.getElementById('h-bar').appendChild(_hbar);
-    });
-  },
-
-  /**
-   * Creates the secondary links for the bar.
-   */
-  createSecondaryLinks: function createSecondaryLinks() {
-    var _this3 = this;
-
-    if (!this.secondaryLinks) return [];
-    return this.secondaryLinks.map(function (_ref3) {
-      var title = _ref3.title,
-          link = _ref3.link;
-      var style = "".concat(_this3.styling.secondaryLink, " ").concat(_config_styling__WEBPACK_IMPORTED_MODULE_2__[/* themes */ "b"][_this3.config.theme].secondaryLink);
-      var butter = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[/* newElement */ "b"])('a', {
-        classes: style
-      });
-      butter.href = link;
-      butter.innerText = title;
-      return butter;
-    }, this);
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (hBar);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
 
 /***/ }),
 /* 5 */

@@ -43,7 +43,7 @@ npm i @reecem/hBar
 Or use jsDelivr:
 ```html
     ...
-    <script src"https://cdn.jsdelivr.net/npm/@reecem/hBar@latest/dist/hBar.js"></script>
+    <script src"https://cdn.jsdelivr.net/npm/@reecem/h-bar@latest/dist/hBar.min.js"></script>
     ...
 ```
 

@@ -85,40 +85,40 @@ You can import it directly into your javascript app or use it in the html.
 
 The initialization object currently has this structure and defaults:
 
-```json
-    {
-        url: "https://your.blog/api/....",
-        onCompleted: "callback function",
-        postLink: "The link url, can be force and no need to fetch from API",
-        postTitle: "The link url, can be force and no need to fetch from API",
-        secondaryLinks: [
-            {
-                title: "Docs",
-                link: "http:://docs.example.com"
-            }
-        ],
-        options: {
-            theme: "gray",
-            secondaryLinks: [],
-            onCompleted: null,
-            fetchOptions: {
-                "method": "GET",
-                "mode": "cors",
-                "cache": "no-cache",
-                "headers": {
-                    "Accept": "application/json"
-                },
-                "redirect": "follow"
-            }
-        },
-        customStyles: {
-            wrapper: "hb-flex hb-w-full hd-flex-col md:hb-flex-row sm:hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between",
-            linkWrapper: "hb-flex hb-items-center",
-            badge: "hb-px-2 hb-mx-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs",
-            postTitle: "hover:hb-underline",
-            secondaryLink: "hb-mx-5 hb-cursor-pointer hover:hb-underline",
+```javascript
+{
+    url: "https://your.blog/api/....",
+    onCompleted: "callback function",
+    postLink: "The link url, can be force and no need to fetch from API",
+    postTitle: "The link url, can be force and no need to fetch from API",
+    secondaryLinks: [
+        {
+            title: "Docs",
+            link: "http:://docs.example.com"
         }
+    ],
+    options: {
+        theme: "gray",
+        secondaryLinks: [],
+        onCompleted: null,
+        fetchOptions: {
+            "method": "GET",
+            "mode": "cors",
+            "cache": "no-cache",
+            "headers": {
+                "Accept": "application/json"
+            },
+            "redirect": "follow"
+        }
+    },
+    customStyles: {
+        wrapper: "hb-flex hb-w-full hd-flex-col md:hb-flex-row sm:hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between",
+        linkWrapper: "hb-flex hb-items-center",
+        badge: "hb-px-2 hb-mx-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs",
+        postTitle: "hover:hb-underline",
+        secondaryLink: "hb-mx-5 hb-cursor-pointer hover:hb-underline",
     }
+}
 ```
 ### Testing
 

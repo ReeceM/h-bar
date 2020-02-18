@@ -71,10 +71,44 @@
         /**
          * Below we are using the h-bar with the preset values and not from a blog.
          */
+        let post_like_url = "https://httpbin.org/delay/2?title=What+A+Wonderful+Chicken+Pie&link=http%3A%2F%2Flocalhost&secondaryLinks=[{\"link\"%3A+\"http%3A%2F%2Fdocs.localhost.com\"%2C+\"title\"%3A+\"Info\"}]";
+        let github_release_link = "https://api.github.com/repos/ReeceM/h-bar/releases";
+
+        // this handles a post response that wouldn't be passed by the default wp-json one built-in
+        // you can also make it do other things or handle a custom api endpoint.
+        let post_parser = (data) => {
+                const {title, link, secondaryLinks} = data.args;
+
+                return {
+                    title: title,
+                    link: link,
+                    /**  Returning a secondary links value actually overrides the one passed in init()*/
+                    secondaryLinks: JSON.parse(secondaryLinks)
+                };
+            }
+
+        // this one appends different data onto the name
+        let github_release = (data) => {
+            const {name, html_url} = data[0];
+            return {
+                title: `Lateset version available ${name}`,
+                link: html_url
+            };
+        }
+
         hBar.init({
-            postLink: "http://localhost",
-            postTitle: "View CheX Homepage",
-            theme: 'blue',
+            url: post_like_url,
+            onCompleted: (e) => {
+                console.log(e)
+            },
+            options: {
+                theme: 'blue',
+            },
+            /**
+             * Custom parser that also handles the response and can add extra data.
+             * pick a different one to see the results.
+             */
+            parser: post_parser,
             secondaryLinks: [
             {
                 title: "Docs",
@@ -86,7 +120,7 @@
             }
             ]
         })
-        hBar.render()
+        hBar.fetchData()
     </script>
 </body>
 </html>

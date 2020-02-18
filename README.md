@@ -41,7 +41,7 @@ I plan to add more options and a parser callback that can be defined to extract 
 You can install the package via npm:
 
 ```bash
-npm i @reecem/hBar
+npm i @reecem/h-bar
 ```
 
 Or use jsDelivr:

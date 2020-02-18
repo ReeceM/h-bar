@@ -97,6 +97,7 @@ The initialization object currently has this structure and defaults:
             link: "http:://docs.example.com"
         }
     ],
+    parser: (data) => {/** Parser function */}
     options: {
         theme: "gray",
         secondaryLinks: [],
@@ -120,6 +121,47 @@ The initialization object currently has this structure and defaults:
     }
 }
 ```
+
+### Parser function
+
+There is the availability of adding a custom parser function to override any of the default ones provided by the package.
+
+This is handy if you have a custom endpoint that say would return also the secondary links or has a different data structure.
+
+The parser function should always return an object with the structure:
+```javascript
+{
+    title: String,
+    link: String,
+    /** the secondaryLinks is optional.
+     * It will also override the links parsed in the init() arguments.
+     */
+    secondaryLinks: [
+        {
+            title: String,
+            link: String,
+        },
+    ]
+}
+```
+
+You can define the function inside the `init()` method as follows:
+```javascript
+
+hBar.init({
+    url: "https://api.github.com/repos/ReeceM/h-bar/releases",
+    parser: (data) => {
+        // getting the first release on the list of releases from github.
+        const {name, html_url} = data[0];
+
+        return {
+            title: `Lateset version available ${name}`,
+            link: html_url
+        };
+    }
+})
+```
+
 ### Testing
 
 _to come_ please make a PR if you know how to do it on JS.

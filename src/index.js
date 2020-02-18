@@ -1,30 +1,33 @@
+/**
+ * h-bar announcement banner
+ *
+ * @version 0.0.6
+ * @author ReeceM
+ */
 import "./styles.css"
+import {init} from "./functions/init"
+import { themes } from "./config/styling"
 import { domReady, newElement } from "./utils"
-import { styling, themes } from "./config/styling"
-import { config } from './config/config'
-
-process.env.APP_VERSION = 'h-bar v0.0.5'
+import { normaliser } from "./functions/normalise"
 
 const hBar = {
     /**
+     * h-bar version number
+    */
+    version: "0.0.6",
+
+    /**
      * Initialise the hBar package
      * @param {string} url The endpoint to get data from
-     * @param {function} callback The function that is called when done
+     * @param {function} onCompleted The function that is called when done
      *
      * @returns {hBar}
      */
-    init({ url, onCompleted, postLink, postTitle, secondaryLinks, options, customStyles}) {
-        this.url = url;
-        this.config = { ...config, ...options };
-        this.styling = { ...styling, ...customStyles };
-        this.callback = onCompleted;
-        this.postLink = postLink
-        this.postTitle = postTitle
-        this.secondaryLinks = secondaryLinks
-        this.theme = this.config.theme
-        return this
-    },
+    init: init,
 
+    /**
+     * Fetch the data from the endpoint
+     */
     fetchData() {
         fetch(this.url, this.config.fetchOptions)
             .then(response => {
@@ -32,20 +35,21 @@ const hBar = {
             })
             .then(json => {
                 if (typeof json == "object") {
-                    this.normaliseResponse(json[0]);
-                    if (this.postTitle == "undefined" || this.postTitle == undefined) {
-                        return;
-                    }
-                    this.render();
+                    normaliser(json)
+                        .then(({ title, link, secondaryLinks }) => {
+                            this.postTitle = title
+                            this.postLink = link
+                            this.secondaryLinks = secondaryLinks || []
+
+                            this.render()
+                        })
+                        .catch(error => {
+                            console.error(error)
+                        });
+                } else {
+                    console.error(`${this.url} Did not return an object`);
                 }
             });
-    },
-    /**
-     * gets the data out
-     */
-    normaliseResponse({ title: { rendered }, link}) {
-        this.postLink = link
-        this.postTitle = rendered
     },
 
     /**
@@ -57,28 +61,31 @@ const hBar = {
             let secondaryLinkList = this.createSecondaryLinks()
             let secondaryElement = newElement('div', {
                 children: secondaryLinkList,
-                classes: `${this.styling.linkWrapper} ${themes[this.config.theme].linkWrapper}`
+                classes: `${this.styling.linkWrapper} ${themes[this.theme].linkWrapper}`
             })
 
-            let badge = newElement('span', {classes: `${this.styling.badge} ${themes[this.config.theme].badge}`})
-            let postLink = newElement('a', { classes: `${this.styling.postTitle} ${themes[this.config.theme].postTitle}` })
+            let badge = newElement('span', {classes: `${this.styling.badge} ${themes[this.theme].badge}`})
+            let postLink = newElement('a', { classes: `${this.styling.postTitle} ${themes[this.theme].postTitle}` })
 
-            badge.innerText = 'NEW';
+            badge.innerText = this.badge;
             postLink.href = this.postLink;
             postLink.innerText = this.postTitle;
 
             let postElement = newElement('div', {
-                classes: `${this.styling.linkWrapper} ${themes[this.config.theme].linkWrapper}`,
+                classes: `${this.styling.linkWrapper} ${themes[this.theme].linkWrapper}`,
                 children: [badge, postLink]
             })
 
             let _hbar = newElement('div', {
-                classes: `${this.styling.wrapper} ${themes[this.config.theme].wrapper}`,
+                classes: `${this.styling.wrapper} ${themes[this.theme].wrapper}`,
                 children: [postElement, secondaryElement]
             })
 
             document.getElementById('h-bar').innerHTML = ""
             document.getElementById('h-bar').appendChild(_hbar)
+
+            // ? what to send out
+            this.onCompleted('done')
         })
     },
 
@@ -89,7 +96,7 @@ const hBar = {
         if (!this.secondaryLinks) return [];
 
         return this.secondaryLinks.map(({ title, link }) => {
-                let style = `${this.styling.secondaryLink} ${themes[this.config.theme].secondaryLink}`;
+                let style = `${this.styling.secondaryLink} ${themes[this.theme].secondaryLink}`;
                 let butter = newElement('a', { classes: style })
                 butter.href = link;
                 butter.innerText = title;

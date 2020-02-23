@@ -7,7 +7,6 @@ export const config = {
     url: '',
     theme: "gray",
     secondaryLinks: [],
-    onCompleted: null,
     fetchOptions: {
         method: 'GET',
         mode: 'cors', // no-cors, *cors, same-origin

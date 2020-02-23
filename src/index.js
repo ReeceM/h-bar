@@ -18,9 +18,8 @@ const hBar = {
 
     /**
      * Initialise the hBar package
-     * @param {string} url The endpoint to get data from
-     * @param {function} onCompleted The function that is called when done
      *
+     * @inheritdoc
      * @returns {hBar}
      */
     init: init,
@@ -45,6 +44,7 @@ const hBar = {
                         })
                         .catch(error => {
                             console.error(error)
+                            this.destroy();
                         });
                 } else {
                     console.error(`${this.url} Did not return an object`);
@@ -81,12 +81,22 @@ const hBar = {
                 children: [postElement, secondaryElement]
             })
 
-            document.getElementById('h-bar').innerHTML = ""
-            document.getElementById('h-bar').appendChild(_hbar)
+            let container = document.getElementById(this.ele);
+
+            container.innerHTML = ""
+            container.appendChild(_hbar)
 
             // ? what to send out
-            this.onCompleted('done')
+            this.onCompleted({ element: container, id: this.ele });
         })
+    },
+
+    /**
+     * Removes the element in the case of it having issues.
+     * Rather an aggressive option.
+     */
+    destroy() {
+        document.getElementById(this.ele).remove()
     },
 
     /**

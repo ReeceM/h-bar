@@ -14,7 +14,7 @@
 function wpJsonParser(data) {
     let { title: { rendered }, link } = data[0];
 
-    if (title == undefined) {
+    if (rendered == undefined) {
         console.error("WP-json response doesn't have real values %o", data[0]);
     }
 

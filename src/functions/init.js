@@ -6,6 +6,7 @@ import { styling } from "../config/styling"
  *
  * @param {object} param0
  * @param {string} param0.url
+ * @param {string} param0.ele The element id
  * @param {string} param0.badge
  * @param {array} param0.secondaryLinks
  * @param {object} param0.options
@@ -17,6 +18,7 @@ import { styling } from "../config/styling"
  */
 export function init({
     url, /** The URL to fetch data from */
+    ele,
     badge,
     secondaryLinks,
     options,
@@ -27,6 +29,8 @@ export function init({
     title, /** The title of the post/article, manual override */
 }) {
     this.url = url;
+
+    this.ele = ele || 'h-bar';
 
     this.config = Object.assign(config, options);
     this.styling = Object.assign(styling, customStyles);
@@ -40,6 +44,7 @@ export function init({
     this.postTitle = title
 
     this.theme = this.config.theme
+
     initNormalise(parser)
 
     return this

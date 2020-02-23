@@ -528,7 +528,6 @@ var config = {
   url: '',
   theme: "gray",
   secondaryLinks: [],
-  onCompleted: null,
   fetchOptions: {
     method: 'GET',
     mode: 'cors',
@@ -561,7 +560,7 @@ function wpJsonParser(data) {
       rendered = _data$.title.rendered,
       link = _data$.link;
 
-  if (title == undefined) {
+  if (rendered == undefined) {
     console.error("WP-json response doesn't have real values %o", data[0]);
   }
 
@@ -654,6 +653,7 @@ var themes = {
  *
  * @param {object} param0
  * @param {string} param0.url
+ * @param {string} param0.ele The element id
  * @param {string} param0.badge
  * @param {array} param0.secondaryLinks
  * @param {object} param0.options
@@ -666,6 +666,7 @@ var themes = {
 
 function init(_ref) {
   var url = _ref.url,
+      ele = _ref.ele,
       badge = _ref.badge,
       secondaryLinks = _ref.secondaryLinks,
       options = _ref.options,
@@ -675,6 +676,7 @@ function init(_ref) {
       link = _ref.link,
       title = _ref.title;
   this.url = url;
+  this.ele = ele || 'h-bar';
   this.config = Object.assign(config, options);
   this.styling = Object.assign(styling, customStyles);
   this.secondaryLinks = secondaryLinks;
@@ -758,7 +760,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 /**
  * h-bar announcement banner
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author ReeceM
  */
 
@@ -770,13 +772,12 @@ var hBar = {
   /**
    * h-bar version number
   */
-  version: "0.1.0",
+  version: "0.2.0",
 
   /**
    * Initialise the hBar package
-   * @param {string} url The endpoint to get data from
-   * @param {function} onCompleted The function that is called when done
    *
+   * @inheritdoc
    * @returns {hBar}
    */
   init: init,
@@ -802,6 +803,8 @@ var hBar = {
           _this.render();
         })["catch"](function (error) {
           console.error(error);
+
+          _this.destroy();
         });
       } else {
         console.error("".concat(_this.url, " Did not return an object"));
@@ -841,11 +844,23 @@ var hBar = {
         children: [postElement, secondaryElement]
       });
 
-      document.getElementById('h-bar').innerHTML = "";
-      document.getElementById('h-bar').appendChild(_hbar); // ? what to send out
+      var container = document.getElementById(_this2.ele);
+      container.innerHTML = "";
+      container.appendChild(_hbar); // ? what to send out
 
-      _this2.onCompleted('done');
+      _this2.onCompleted({
+        element: container,
+        id: _this2.ele
+      });
     });
+  },
+
+  /**
+   * Removes the element in the case of it having issues.
+   * Rather an aggressive option.
+   */
+  destroy: function destroy() {
+    document.getElementById(this.ele).remove();
   },
 
   /**

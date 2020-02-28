@@ -33,4 +33,46 @@ export const themes = {
         postTitle: "hover:hb-text-blue-300",
         secondaryLink: "hover:hb-text-blue-300"
     },
+    green: {
+        wrapper: "hb-bg-green-900 hb-text-green-100",
+        linkWrapper: "",
+        badge: "hb-bg-green-100 hb-text-green-900",
+        postTitle: "hover:hb-text-green-300",
+        secondaryLink: "hover:hb-text-green-300"
+    },
+    indigo: {
+        wrapper: "hb-bg-indigo-900 hb-text-indigo-100",
+        linkWrapper: "",
+        badge: "hb-bg-indigo-100 hb-text-indigo-900",
+        postTitle: "hover:hb-text-indigo-300",
+        secondaryLink: "hover:hb-text-indigo-300"
+    },
+    orange: {
+        wrapper: "hb-bg-orange-900 hb-text-orange-100",
+        linkWrapper: "",
+        badge: "hb-bg-orange-100 hb-text-orange-900",
+        postTitle: "hover:hb-text-orange-300",
+        secondaryLink: "hover:hb-text-orange-300"
+    },
+    yellow: {
+        wrapper: "hb-bg-yellow-900 hb-text-yellow-100",
+        linkWrapper: "",
+        badge: "hb-bg-yellow-100 hb-text-yellow-900",
+        postTitle: "hover:hb-text-yellow-300",
+        secondaryLink: "hover:hb-text-yellow-300"
+    },
+    teal: {
+        wrapper: "hb-bg-teal-900 hb-text-teal-100",
+        linkWrapper: "",
+        badge: "hb-bg-teal-100 hb-text-teal-900",
+        postTitle: "hover:hb-text-teal-300",
+        secondaryLink: "hover:hb-text-teal-300"
+    },
+    red: {
+        wrapper: "hb-bg-red-900 hb-text-red-100",
+        linkWrapper: "",
+        badge: "hb-bg-red-100 hb-text-red-900",
+        postTitle: "hover:hb-text-red-300",
+        secondaryLink: "hover:hb-text-red-300"
+    },
 }

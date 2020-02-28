@@ -2,6 +2,13 @@
 
 All notable changes to `h-bar` will be documented in this file.
 
+## 0.2.1 - 2020-02-28
+
+***FEATURES***
+
+- [a89fcc0] Adds more themes for the styling
+- [dc588ce] Gives the link an svg chevron for pretty
+
 ## 0.2.0 - 2020-02-23
 
 This has a fix for the fact I mixed up the values compared in the wordpress passer.

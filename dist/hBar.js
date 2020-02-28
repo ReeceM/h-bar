@@ -403,7 +403,7 @@ module.exports = function (list, options) {
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".hb-bg-white{background-color:#fff}.hb-bg-gray-900{background-color:#1a202c}.hb-bg-blue-100{background-color:#ebf8ff}.hb-bg-blue-900{background-color:#2a4365}.hb-rounded-full{border-radius:9999px}.hb-cursor-pointer{cursor:pointer}.hb-flex{display:flex}.hb-items-center{align-items:center}.hb-justify-between{justify-content:space-between}.hb-font-semibold{font-weight:600}.hb-leading-relaxed{line-height:1.625}.hb-mx-2{margin-left:.5rem;margin-right:.5rem}.hb-mx-5{margin-left:1.25rem;margin-right:1.25rem}.hb-px-1{padding-left:.25rem;padding-right:.25rem}.hb-py-2{padding-top:.5rem;padding-bottom:.5rem}.hb-px-2{padding-left:.5rem;padding-right:.5rem}.hb-text-gray-100{color:#f7fafc}.hb-text-gray-900{color:#1a202c}.hb-text-blue-100{color:#ebf8ff}.hb-text-blue-900{color:#2a4365}.hover\\:hb-text-gray-300:hover{color:#e2e8f0}.hover\\:hb-text-blue-300:hover{color:#90cdf4}.hb-text-xs{font-size:.75rem}.hb-text-sm{font-size:.875rem}.hb-uppercase{text-transform:uppercase}.hover\\:hb-underline:hover{text-decoration:underline}.hb-tracking-wider{letter-spacing:.05em}.hb-w-full{width:100%}a{color:inherit;text-decoration:inherit;background-color:transparent}*{box-sizing:border-box;border:0 solid #e2e8f0}.fade-in-top{-webkit-animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1);animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1)}@-webkit-keyframes fade-in-top{to{transform:translateY(0);opacity:1}}@keyframes fade-in-top{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@media (min-width:640px){.sm\\:hb-flex-row{flex-direction:row}}@media (min-width:768px){.md\\:hb-flex-row{flex-direction:row}.md\\:hb-px-20{padding-left:5rem;padding-right:5rem}}", ""]);
+exports.push([module.i, ".hb-bg-white{background-color:#fff}.hb-bg-gray-400{background-color:#cbd5e0}.hb-bg-gray-900{background-color:#1a202c}.hb-bg-red-100{background-color:#fff5f5}.hb-bg-red-400{background-color:#fc8181}.hb-bg-orange-300{background-color:#fbd38d}.hb-bg-orange-800{background-color:#9c4221}.hb-bg-yellow-100{background-color:ivory}.hb-bg-yellow-300{background-color:#faf089}.hb-bg-green-100{background-color:#f0fff4}.hb-bg-green-600{background-color:#38a169}.hb-bg-teal-500{background-color:#38b2ac}.hb-bg-teal-900{background-color:#234e52}.hb-bg-blue-100{background-color:#ebf8ff}.hb-bg-blue-900{background-color:#2a4365}.hb-bg-indigo-100{background-color:#ebf4ff}.hb-bg-indigo-800{background-color:#434190}.hb-rounded-full{border-radius:9999px}.hb-cursor-pointer{cursor:pointer}.hb-flex{display:flex}.hb-inline-flex{display:inline-flex}.hb-items-center{align-items:center}.hb-justify-between{justify-content:space-between}.hb-font-semibold{font-weight:600}.hb-leading-relaxed{line-height:1.625}.hb-mx-2{margin-left:.5rem;margin-right:.5rem}.hb-mx-5{margin-left:1.25rem;margin-right:1.25rem}.hb-px-1{padding-left:.25rem;padding-right:.25rem}.hb-py-2{padding-top:.5rem;padding-bottom:.5rem}.hb-px-2{padding-left:.5rem;padding-right:.5rem}.hb-text-gray-100{color:#f7fafc}.hb-text-gray-900{color:#1a202c}.hb-text-red-900{color:#742a2a}.hb-text-orange-100{color:#fffaf0}.hb-text-orange-900{color:#7b341e}.hb-text-yellow-900{color:#744210}.hb-text-green-100{color:#f0fff4}.hb-text-green-900{color:#22543d}.hb-text-teal-100{color:#e6fffa}.hb-text-blue-100{color:#ebf8ff}.hb-text-blue-900{color:#2a4365}.hb-text-indigo-100{color:#ebf4ff}.hb-text-indigo-900{color:#3c366b}.hover\\:hb-text-gray-300:hover{color:#e2e8f0}.hover\\:hb-text-gray-600:hover{color:#718096}.hover\\:hb-text-red-100:hover{color:#fff5f5}.hover\\:hb-text-orange-700:hover{color:#c05621}.hover\\:hb-text-yellow-700:hover{color:#b7791f}.hover\\:hb-text-green-300:hover{color:#9ae6b4}.hover\\:hb-text-teal-300:hover{color:#81e6d9}.hover\\:hb-text-blue-300:hover{color:#90cdf4}.hover\\:hb-text-indigo-300:hover{color:#a3bffa}.hb-text-xs{font-size:.75rem}.hb-text-sm{font-size:.875rem}.hb-uppercase{text-transform:uppercase}.hover\\:hb-underline:hover{text-decoration:underline}.hb-tracking-wider{letter-spacing:.05em}.hb-w-full{width:100%}a{color:inherit;text-decoration:inherit;background-color:transparent}*{box-sizing:border-box;border:0 solid #e2e8f0}.fade-in-top{-webkit-animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1);animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1)}@-webkit-keyframes fade-in-top{to{transform:translateY(0);opacity:1}}@keyframes fade-in-top{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@media (min-width:640px){.sm\\:hb-flex-row{flex-direction:row}}@media (min-width:768px){.md\\:hb-flex-row{flex-direction:row}.md\\:hb-px-20{padding-left:5rem;padding-right:5rem}}", ""]);
 // Exports
 module.exports = exports;
 
@@ -620,7 +620,7 @@ var styling = {
   wrapper: "hb-flex hb-w-full hd-flex-col md:hb-flex-row sm:hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between",
   linkWrapper: "hb-flex hb-items-center",
   badge: "hb-px-2 hb-mx-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs",
-  postTitle: "hover:hb-underline",
+  postTitle: "hover:hb-underline hb-inline-flex hb-items-center",
   secondaryLink: "hb-mx-5 hb-cursor-pointer hover:hb-underline"
 };
 /**
@@ -637,12 +637,61 @@ var themes = {
     postTitle: "hover:hb-text-gray-300",
     secondaryLink: "hover:hb-text-gray-300"
   },
+  lightGray: {
+    wrapper: "hb-bg-gray-400 hb-text-gray-900",
+    linkWrapper: "",
+    badge: "hb-bg-white hb-text-gray-900 shadow",
+    postTitle: "hover:hb-text-gray-600",
+    secondaryLink: "hover:hb-text-gray-600"
+  },
   blue: {
     wrapper: "hb-bg-blue-900 hb-text-blue-100",
     linkWrapper: "",
-    badge: "hb-bg-blue-100 hb-text-blue-900",
+    badge: "hb-bg-blue-100 hb-text-blue-900 shadow",
     postTitle: "hover:hb-text-blue-300",
     secondaryLink: "hover:hb-text-blue-300"
+  },
+  green: {
+    wrapper: "hb-bg-green-600 hb-text-green-100",
+    linkWrapper: "",
+    badge: "hb-bg-green-100 hb-text-green-900",
+    postTitle: "hover:hb-text-green-300",
+    secondaryLink: "hover:hb-text-green-300"
+  },
+  indigo: {
+    wrapper: "hb-bg-indigo-800 hb-text-indigo-100",
+    linkWrapper: "",
+    badge: "hb-bg-indigo-100 hb-text-indigo-900 shadow",
+    postTitle: "hover:hb-text-indigo-300",
+    secondaryLink: "hover:hb-text-indigo-300"
+  },
+  orange: {
+    wrapper: "hb-bg-orange-300 hb-text-orange-900",
+    linkWrapper: "",
+    badge: "hb-bg-orange-800 hb-text-orange-100 shadow",
+    postTitle: "hover:hb-text-orange-700",
+    secondaryLink: "hover:hb-text-orange-700"
+  },
+  yellow: {
+    wrapper: "hb-bg-yellow-300 hb-text-yellow-900",
+    linkWrapper: "",
+    badge: "hb-bg-yellow-100 hb-text-yellow-900 shadow",
+    postTitle: "hover:hb-text-yellow-700",
+    secondaryLink: "hover:hb-text-yellow-700"
+  },
+  teal: {
+    wrapper: "hb-bg-teal-500 hb-text-teal-100",
+    linkWrapper: "",
+    badge: "hb-bg-teal-900 hb-text-teal-100 shadow",
+    postTitle: "hover:hb-text-teal-300",
+    secondaryLink: "hover:hb-text-teal-300"
+  },
+  red: {
+    wrapper: "hb-bg-red-400 hb-text-red-900",
+    linkWrapper: "",
+    badge: "hb-bg-red-100 hb-text-red-900 shadow",
+    postTitle: "hover:hb-text-red-100",
+    secondaryLink: "hover:hb-text-red-100"
   }
 };
 // CONCATENATED MODULE: ./src/functions/init.js
@@ -760,7 +809,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 /**
  * h-bar announcement banner
  *
- * @version 0.2.0
+ * @version 0.2.1
  * @author ReeceM
  */
 
@@ -772,7 +821,7 @@ var hBar = {
   /**
    * h-bar version number
   */
-  version: "0.2.0",
+  version: "0.2.1",
 
   /**
    * Initialise the hBar package
@@ -834,6 +883,7 @@ var hBar = {
       badge.innerText = _this2.badge;
       postLink.href = _this2.postLink;
       postLink.innerText = _this2.postTitle;
+      postLink.innerHTML += "\n            <svg class=\"h-3 w-3\" viewBox=\"0 0 20 20\" fill=\"currentColor\">\n                <path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\"/>\n            </svg>\n            ";
       var postElement = newElement('div', {
         classes: "".concat(_this2.styling.linkWrapper, " ").concat(themes[_this2.theme].linkWrapper),
         children: [badge, postLink]

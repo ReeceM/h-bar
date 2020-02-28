@@ -1,7 +1,7 @@
 /**
  * h-bar announcement banner
  *
- * @version 0.2.0
+ * @version 0.2.1
  * @author ReeceM
  */
 import "./styles.css"
@@ -14,7 +14,7 @@ const hBar = {
     /**
      * h-bar version number
     */
-    version: "0.2.0",
+    version: "0.2.1",
 
     /**
      * Initialise the hBar package

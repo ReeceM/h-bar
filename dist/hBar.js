@@ -713,6 +713,7 @@ var themes = {
  * @param {string} param0.url
  * @param {string} param0.ele The element id
  * @param {boolean} param0.dismissible
+ * @param {Date|boolean} param0.dismissFor
  * @param {string} param0.badge
  * @param {array} param0.secondaryLinks
  * @param {object} param0.options
@@ -727,6 +728,7 @@ function init(_ref) {
   var url = _ref.url,
       ele = _ref.ele,
       dismissible = _ref.dismissible,
+      dismissFor = _ref.dismissFor,
       badge = _ref.badge,
       secondaryLinks = _ref.secondaryLinks,
       options = _ref.options,
@@ -739,6 +741,7 @@ function init(_ref) {
   this.ele = ele || 'h-bar'; // we will default to false for this
 
   this.dismissible = dismissible || false;
+  this.dismissFor = dismissFor || false;
   this.config = Object.assign(config, options);
   this.styling = Object.assign(styling, customStyles);
   this.secondaryLinks = secondaryLinks;
@@ -822,7 +825,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 /**
  * h-bar announcement banner
  *
- * @version 0.2.1
+ * @version 0.3.0
  * @author ReeceM
  */
 
@@ -834,7 +837,7 @@ var hBar = {
   /**
    * h-bar version number
   */
-  version: "0.2.1",
+  version: "0.3.0",
 
   /**
    * Initialise the hBar package
@@ -850,6 +853,7 @@ var hBar = {
   fetchData: function fetchData() {
     var _this = this;
 
+    if (this.isDismissed()) return;
     fetch(this.url, this.config.fetchOptions).then(function (response) {
       return response.json();
     }).then(function (json) {
@@ -880,6 +884,7 @@ var hBar = {
   render: function render() {
     var _this2 = this;
 
+    if (this.isDismissed()) return;
     domReady().then(function () {
       if (!_this2.postTitle) {
         console.error('[h-bar] no post data, unable to render');
@@ -939,16 +944,19 @@ var hBar = {
   destroy: function destroy() {
     try {
       document.getElementById(this.ele).remove();
+      return true;
     } catch (error) {
       console.error('Unable to destroy the h-bar wrapper');
       console.error(error);
     }
+
+    return false;
   },
 
   /**
    * Creates the HTML node for a dismissible button.
    *
-   * @returns {HTMLElement}
+   * @returns HTMLElement
    */
   dismissibleButton: function dismissibleButton() {
     var _this3 = this;
@@ -959,12 +967,42 @@ var hBar = {
     dismiss.innerHTML = "<svg class=\"h-4 w-4 ".concat(themes[this.theme].dismiss, "\" stroke=\"currentColor\" fill=\"none\" viewBox=\"0 0 24 24\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path>\n              </svg>");
 
     dismiss.onclick = function (e) {
-      e.preventDefault();
+      e.preventDefault(); // just do it early if we not logging time.
 
-      _this3.destroy();
+      if (!_this3.dismissFor) return _this3.destroy();
+
+      if (localStorage) {
+        localStorage.setItem('h-bar_dismiss_for', _this3.dismissFor.getTime());
+      }
+
+      return _this3.destroy();
     };
 
     return dismiss;
+  },
+
+  /**
+   * Determines if the banner has been dismissed.
+   *
+   * @returns boolean
+   */
+  isDismissed: function isDismissed() {
+    if (localStorage) {
+      var dismissDate = localStorage.getItem('h-bar_dismiss_for');
+
+      if (!dismissDate) {
+        return false;
+      }
+
+      dismissDate = dismissDate;
+      var ourDate = new Date().getTime();
+
+      if (ourDate <= dismissDate) {
+        return true;
+      }
+    }
+
+    return false;
   },
 
   /**

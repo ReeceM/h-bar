@@ -635,63 +635,72 @@ var themes = {
     linkWrapper: "",
     badge: "hb-bg-white hb-text-gray-900",
     postTitle: "hover:hb-text-gray-300",
-    secondaryLink: "hover:hb-text-gray-300"
+    secondaryLink: "hover:hb-text-gray-300",
+    dismiss: "text-white"
   },
   lightGray: {
     wrapper: "hb-bg-gray-400 hb-text-gray-900",
     linkWrapper: "",
     badge: "hb-bg-white hb-text-gray-900 shadow",
     postTitle: "hover:hb-text-gray-600",
-    secondaryLink: "hover:hb-text-gray-600"
+    secondaryLink: "hover:hb-text-gray-600",
+    dismiss: "text-white"
   },
   blue: {
     wrapper: "hb-bg-blue-900 hb-text-blue-100",
     linkWrapper: "",
     badge: "hb-bg-blue-100 hb-text-blue-900 shadow",
     postTitle: "hover:hb-text-blue-300",
-    secondaryLink: "hover:hb-text-blue-300"
+    secondaryLink: "hover:hb-text-blue-300",
+    dismiss: "text-white"
   },
   green: {
     wrapper: "hb-bg-green-600 hb-text-green-100",
     linkWrapper: "",
     badge: "hb-bg-green-100 hb-text-green-900",
     postTitle: "hover:hb-text-green-300",
-    secondaryLink: "hover:hb-text-green-300"
+    secondaryLink: "hover:hb-text-green-300",
+    dismiss: "text-white"
   },
   indigo: {
     wrapper: "hb-bg-indigo-800 hb-text-indigo-100",
     linkWrapper: "",
     badge: "hb-bg-indigo-100 hb-text-indigo-900 shadow",
     postTitle: "hover:hb-text-indigo-300",
-    secondaryLink: "hover:hb-text-indigo-300"
+    secondaryLink: "hover:hb-text-indigo-300",
+    dismiss: "text-white"
   },
   orange: {
     wrapper: "hb-bg-orange-300 hb-text-orange-900",
     linkWrapper: "",
     badge: "hb-bg-orange-800 hb-text-orange-100 shadow",
     postTitle: "hover:hb-text-orange-700",
-    secondaryLink: "hover:hb-text-orange-700"
+    secondaryLink: "hover:hb-text-orange-700",
+    dismiss: "text-white"
   },
   yellow: {
     wrapper: "hb-bg-yellow-300 hb-text-yellow-900",
     linkWrapper: "",
     badge: "hb-bg-yellow-100 hb-text-yellow-900 shadow",
     postTitle: "hover:hb-text-yellow-700",
-    secondaryLink: "hover:hb-text-yellow-700"
+    secondaryLink: "hover:hb-text-yellow-700",
+    dismiss: "text-white"
   },
   teal: {
     wrapper: "hb-bg-teal-500 hb-text-teal-100",
     linkWrapper: "",
     badge: "hb-bg-teal-900 hb-text-teal-100 shadow",
     postTitle: "hover:hb-text-teal-300",
-    secondaryLink: "hover:hb-text-teal-300"
+    secondaryLink: "hover:hb-text-teal-300",
+    dismiss: "text-white"
   },
   red: {
     wrapper: "hb-bg-red-400 hb-text-red-900",
     linkWrapper: "",
     badge: "hb-bg-red-100 hb-text-red-900 shadow",
     postTitle: "hover:hb-text-red-100",
-    secondaryLink: "hover:hb-text-red-100"
+    secondaryLink: "hover:hb-text-red-100",
+    dismiss: "text-white"
   }
 };
 // CONCATENATED MODULE: ./src/functions/init.js
@@ -703,6 +712,7 @@ var themes = {
  * @param {object} param0
  * @param {string} param0.url
  * @param {string} param0.ele The element id
+ * @param {boolean} param0.dismissible
  * @param {string} param0.badge
  * @param {array} param0.secondaryLinks
  * @param {object} param0.options
@@ -716,6 +726,7 @@ var themes = {
 function init(_ref) {
   var url = _ref.url,
       ele = _ref.ele,
+      dismissible = _ref.dismissible,
       badge = _ref.badge,
       secondaryLinks = _ref.secondaryLinks,
       options = _ref.options,
@@ -725,7 +736,9 @@ function init(_ref) {
       link = _ref.link,
       title = _ref.title;
   this.url = url;
-  this.ele = ele || 'h-bar';
+  this.ele = ele || 'h-bar'; // we will default to false for this
+
+  this.dismissible = dismissible || false;
   this.config = Object.assign(config, options);
   this.styling = Object.assign(styling, customStyles);
   this.secondaryLinks = secondaryLinks;
@@ -868,12 +881,24 @@ var hBar = {
     var _this2 = this;
 
     domReady().then(function () {
-      var secondaryLinkList = _this2.createSecondaryLinks();
+      if (!_this2.postTitle) {
+        console.error('[h-bar] no post data, unable to render');
+        return;
+      }
 
-      var secondaryElement = newElement('div', {
-        children: secondaryLinkList,
-        classes: "".concat(_this2.styling.linkWrapper, " ").concat(themes[_this2.theme].linkWrapper)
-      });
+      var secondaryElement = null;
+
+      if (!_this2.dismissible) {
+        var secondaryLinkList = _this2.createSecondaryLinks();
+
+        secondaryElement = newElement('div', {
+          children: secondaryLinkList,
+          classes: "".concat(_this2.styling.linkWrapper, " ").concat(themes[_this2.theme].linkWrapper)
+        });
+      } else {
+        secondaryElement = _this2.dismissibleButton();
+      }
+
       var badge = newElement('span', {
         classes: "".concat(_this2.styling.badge, " ").concat(themes[_this2.theme].badge)
       });
@@ -908,22 +933,51 @@ var hBar = {
   /**
    * Removes the element in the case of it having issues.
    * Rather an aggressive option.
+   *
+   * Also used when dismissing.
    */
   destroy: function destroy() {
-    document.getElementById(this.ele).remove();
+    try {
+      document.getElementById(this.ele).remove();
+    } catch (error) {
+      console.error('Unable to destroy the h-bar wrapper');
+      console.error(error);
+    }
+  },
+
+  /**
+   * Creates the HTML node for a dismissible button.
+   *
+   * @returns {HTMLElement}
+   */
+  dismissibleButton: function dismissibleButton() {
+    var _this3 = this;
+
+    var dismiss = newElement('button', {
+      classes: '-mr-1 flex p-1 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-gray-800'
+    });
+    dismiss.innerHTML = "<svg class=\"h-4 w-4 ".concat(themes[this.theme].dismiss, "\" stroke=\"currentColor\" fill=\"none\" viewBox=\"0 0 24 24\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path>\n              </svg>");
+
+    dismiss.onclick = function (e) {
+      e.preventDefault();
+
+      _this3.destroy();
+    };
+
+    return dismiss;
   },
 
   /**
    * Creates the secondary links for the bar.
    */
   createSecondaryLinks: function createSecondaryLinks() {
-    var _this3 = this;
+    var _this4 = this;
 
     if (!this.secondaryLinks) return [];
     return this.secondaryLinks.map(function (_ref2) {
       var title = _ref2.title,
           link = _ref2.link;
-      var style = "".concat(_this3.styling.secondaryLink, " ").concat(themes[_this3.theme].secondaryLink);
+      var style = "".concat(_this4.styling.secondaryLink, " ").concat(themes[_this4.theme].secondaryLink);
       var butter = newElement('a', {
         classes: style
       });

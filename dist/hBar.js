@@ -825,7 +825,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 /**
  * h-bar announcement banner
  *
- * @version 0.3.0
+ * @version 1.0.0
  * @author ReeceM
  */
 
@@ -837,7 +837,7 @@ var hBar = {
   /**
    * h-bar version number
   */
-  version: "0.3.0",
+  version: "1.0.0",
 
   /**
    * Initialise the hBar package

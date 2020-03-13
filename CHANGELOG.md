@@ -7,7 +7,7 @@ All notable changes to `h-bar` will be documented in this file.
 ***FEATURE***
 - [110bab7] Add `dismissible` to the init function.
 - [417484c] Add functionality to the main code to be able to dismiss the banner
-- [] Option to be able to store it locally for a period of time in localStorage
+- [79c4e6b] Option to be able to store it locally for a period of time in localStorage
 
 ## 0.2.1 - 2020-02-28
 

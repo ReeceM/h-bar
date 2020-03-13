@@ -2,6 +2,21 @@
 
 All notable changes to `h-bar` will be documented in this file.
 
+# 1.0.0 - 2020-03-13
+
+First initial major version of h-bar :)
+
+This has kinda the base features for the first version.
+
+See previous versions for the features to this point.
+
+# 0.3.0 - 2020-03-13
+
+***FEATURE***
+- [110bab7] Add `dismissible` to the init function.
+- [417484c] Add functionality to the main code to be able to dismiss the banner
+- [79c4e6b] Option to be able to store it locally for a period of time in localStorage
+
 ## 0.2.1 - 2020-02-28
 
 ***FEATURES***

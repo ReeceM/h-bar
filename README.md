@@ -98,6 +98,8 @@ The initialization object currently has this structure and defaults:
         }
     ],
     parser: (data) => {/** Parser function */}
+    dismissible: false, // dismissible banner flag
+    dismissFor: new Date('2020-03-30'), // would dismiss it till end of march 30th
     options: {
         theme: "gray",
         secondaryLinks: [],
@@ -161,6 +163,42 @@ hBar.init({
     }
 })
 ```
+
+### Dismissing Notifications
+
+> Available from `v0.3.0`/`v1.0.0`
+
+**Temporary Dismissing**
+To be able to dismiss a notification, please note it currently removes secondary links. It is therefore useful that you use this feature when just making announcements of a event or brief notification.
+
+The way to activate session based dismissal is:
+
+```javascript
+{
+    //... rest of config
+    dismissible: true,
+    //... rest of config
+}
+```
+
+This will just disable the banner for the current page visit, if the user reloads, its back.
+
+**Time based dismissing**
+
+To dismiss the banner until another time, you can set the `dismissFor` variable, this requires a `Date()` object.
+
+When you set this and the banner is dismissed, the UTC milliseconds are stored in the localStorage, this is then read back when loading h-Bar.
+
+```javascript
+{
+    //... rest of config
+    dismissible: true,
+    dismissFor: new Date('2020-03-30'), // would dismiss it till end of march 30th
+}
+```
+
+If you fail to set the value properly, it won't dismiss and the banner will show by default.
+
 
 ### Testing
 

@@ -2,6 +2,14 @@
 
 All notable changes to `h-bar` will be documented in this file.
 
+# 1.0.0 - 2020-03-13
+
+First initial major version of h-bar :)
+
+This has kinda the base features for the first version.
+
+See previous versions for the features to this point.
+
 # 0.3.0 - 2020-03-13
 
 ***FEATURE***

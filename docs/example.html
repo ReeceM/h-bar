@@ -95,6 +95,12 @@
             };
         }
 
+        var dateToday = new Date();
+        /**
+         *  Add two(2) minutes to the delay to see it work :)
+         */
+        var dismissMillis = (new Date()).setMinutes(dateToday.getMinutes() + 2);
+
         hBar.init({
             url: post_like_url,
             onCompleted: (e) => {
@@ -104,6 +110,7 @@
                 theme: 'gray',
             },
             // dismissible: true,
+            // dismissFor: new Date(dismissMillis),
             /**
              * Custom parser that also handles the response and can add extra data.
              * pick a different one to see the results.

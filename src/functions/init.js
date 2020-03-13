@@ -7,6 +7,8 @@ import { styling } from "../config/styling"
  * @param {object} param0
  * @param {string} param0.url
  * @param {string} param0.ele The element id
+ * @param {boolean} param0.dismissible
+ * @param {Date|boolean} param0.dismissFor
  * @param {string} param0.badge
  * @param {array} param0.secondaryLinks
  * @param {object} param0.options
@@ -19,6 +21,8 @@ import { styling } from "../config/styling"
 export function init({
     url, /** The URL to fetch data from */
     ele,
+    dismissible,
+    dismissFor,
     badge,
     secondaryLinks,
     options,
@@ -31,6 +35,11 @@ export function init({
     this.url = url;
 
     this.ele = ele || 'h-bar';
+
+    // we will default to false for this
+    this.dismissible = dismissible || false;
+
+    this.dismissFor = dismissFor || false;
 
     this.config = Object.assign(config, options);
     this.styling = Object.assign(styling, customStyles);

@@ -1,11 +1,11 @@
 /**
  * h-bar announcement banner
  *
- * @version 0.2.1
+ * @version 0.3.0
  * @author ReeceM
  */
 import "./styles.css"
-import {init} from "./functions/init"
+import { init } from "./functions/init"
 import { themes } from "./config/styling"
 import { domReady, newElement } from "./utils"
 import { normaliser } from "./functions/normalise"
@@ -14,7 +14,7 @@ const hBar = {
     /**
      * h-bar version number
     */
-    version: "0.2.1",
+    version: "0.3.0",
 
     /**
      * Initialise the hBar package
@@ -28,6 +28,8 @@ const hBar = {
      * Fetch the data from the endpoint
      */
     fetchData() {
+        if (this.isDismissed()) return;
+
         fetch(this.url, this.config.fetchOptions)
             .then(response => {
                 return response.json()
@@ -56,15 +58,27 @@ const hBar = {
      * Render the element.
      */
     render() {
+        if (this.isDismissed()) return;
         domReady().then(() => {
 
-            let secondaryLinkList = this.createSecondaryLinks()
-            let secondaryElement = newElement('div', {
-                children: secondaryLinkList,
-                classes: `${this.styling.linkWrapper} ${themes[this.theme].linkWrapper}`
-            })
+            if (!this.postTitle) {
+                console.error('[h-bar] no post data, unable to render');
+                return;
+            }
 
-            let badge = newElement('span', {classes: `${this.styling.badge} ${themes[this.theme].badge}`})
+            let secondaryElement = null;
+
+            if (!this.dismissible) {
+                let secondaryLinkList = this.createSecondaryLinks()
+                secondaryElement = newElement('div', {
+                    children: secondaryLinkList,
+                    classes: `${this.styling.linkWrapper} ${themes[this.theme].linkWrapper}`
+                })
+            } else {
+                secondaryElement = this.dismissibleButton();
+            }
+
+            let badge = newElement('span', { classes: `${this.styling.badge} ${themes[this.theme].badge}` })
             let postLink = newElement('a', { classes: `${this.styling.postTitle} ${themes[this.theme].postTitle}` })
 
             badge.innerText = this.badge;
@@ -100,9 +114,74 @@ const hBar = {
     /**
      * Removes the element in the case of it having issues.
      * Rather an aggressive option.
+     *
+     * Also used when dismissing.
      */
     destroy() {
-        document.getElementById(this.ele).remove()
+        try {
+            document.getElementById(this.ele).remove()
+
+            return true;
+        } catch (error) {
+            console.error('Unable to destroy the h-bar wrapper')
+            console.error(error)
+        }
+
+        return false;
+    },
+
+    /**
+     * Creates the HTML node for a dismissible button.
+     *
+     * @returns HTMLElement
+     */
+    dismissibleButton() {
+        let dismiss = newElement('button', {
+            classes: '-mr-1 flex p-1 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-gray-800',
+        });
+
+        dismiss.innerHTML = `<svg class="h-4 w-4 ${themes[this.theme].dismiss}" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>`
+
+        dismiss.onclick = (e) => {
+            e.preventDefault();
+
+            // just do it early if we not logging time.
+            if (!this.dismissFor) return this.destroy();
+
+            if (localStorage) {
+                localStorage.setItem('h-bar_dismiss_for', this.dismissFor.getTime());
+            }
+
+            return this.destroy();
+        }
+
+        return dismiss;
+    },
+
+    /**
+     * Determines if the banner has been dismissed.
+     *
+     * @returns boolean
+     */
+    isDismissed() {
+
+        if (localStorage) {
+            var dismissDate = localStorage.getItem('h-bar_dismiss_for');
+            if (!dismissDate) {
+                return false;
+            }
+
+            dismissDate = dismissDate;
+            var ourDate = (new Date()).getTime();
+
+            if (ourDate <= dismissDate) {
+                return true;
+            }
+        }
+
+        return false;
     },
 
     /**
@@ -112,13 +191,13 @@ const hBar = {
         if (!this.secondaryLinks) return [];
 
         return this.secondaryLinks.map(({ title, link }) => {
-                let style = `${this.styling.secondaryLink} ${themes[this.theme].secondaryLink}`;
-                let butter = newElement('a', { classes: style })
-                butter.href = link;
-                butter.innerText = title;
+            let style = `${this.styling.secondaryLink} ${themes[this.theme].secondaryLink}`;
+            let butter = newElement('a', { classes: style })
+            butter.href = link;
+            butter.innerText = title;
 
-                return butter;
-            }, this);
+            return butter;
+        }, this);
     }
 }
 

@@ -2,6 +2,13 @@
 
 All notable changes to `h-bar` will be documented in this file.
 
+# 0.3.0 - 2020-03-13
+
+***FEATURE***
+- [110bab7] Add `dismissible` to the init function.
+- [417484c] Add functionality to the main code to be able to dismiss the banner
+- [] Option to be able to store it locally for a period of time in localStorage
+
 ## 0.2.1 - 2020-02-28
 
 ***FEATURES***

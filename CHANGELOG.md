@@ -2,6 +2,12 @@
 
 All notable changes to `h-bar` will be documented in this file.
 
+# 1.0.1 - 2020-04-09
+
+__FIX__
+
+The styling broke in firefox as sizing was missing the prefix.
+
 # 1.0.0 - 2020-03-13
 
 First initial major version of h-bar :)

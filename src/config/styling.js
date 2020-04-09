@@ -25,7 +25,7 @@ export const themes = {
         badge: "hb-bg-white hb-text-gray-900",
         postTitle: "hover:hb-text-gray-300",
         secondaryLink: "hover:hb-text-gray-300",
-        dismiss: "text-white"
+        dismiss: "hb-text-white"
     },
     lightGray: {
         wrapper: "hb-bg-gray-400 hb-text-gray-900",
@@ -33,7 +33,7 @@ export const themes = {
         badge: "hb-bg-white hb-text-gray-900 shadow",
         postTitle: "hover:hb-text-gray-600",
         secondaryLink: "hover:hb-text-gray-600",
-        dismiss: "text-white"
+        dismiss: "hb-text-white"
     },
     blue: {
         wrapper: "hb-bg-blue-900 hb-text-blue-100",
@@ -41,7 +41,7 @@ export const themes = {
         badge: "hb-bg-blue-100 hb-text-blue-900 shadow",
         postTitle: "hover:hb-text-blue-300",
         secondaryLink: "hover:hb-text-blue-300",
-        dismiss: "text-white"
+        dismiss: "hb-text-white"
     },
     green: {
         wrapper: "hb-bg-green-600 hb-text-green-100",
@@ -49,7 +49,7 @@ export const themes = {
         badge: "hb-bg-green-100 hb-text-green-900",
         postTitle: "hover:hb-text-green-300",
         secondaryLink: "hover:hb-text-green-300",
-        dismiss: "text-white"
+        dismiss: "hb-text-white"
     },
     indigo: {
         wrapper: "hb-bg-indigo-800 hb-text-indigo-100",
@@ -57,7 +57,7 @@ export const themes = {
         badge: "hb-bg-indigo-100 hb-text-indigo-900 shadow",
         postTitle: "hover:hb-text-indigo-300",
         secondaryLink: "hover:hb-text-indigo-300",
-        dismiss: "text-white"
+        dismiss: "hb-text-white"
     },
     orange: {
         wrapper: "hb-bg-orange-300 hb-text-orange-900",
@@ -65,7 +65,7 @@ export const themes = {
         badge: "hb-bg-orange-800 hb-text-orange-100 shadow",
         postTitle: "hover:hb-text-orange-700",
         secondaryLink: "hover:hb-text-orange-700",
-        dismiss: "text-white"
+        dismiss: "hb-text-white"
     },
     yellow: {
         wrapper: "hb-bg-yellow-300 hb-text-yellow-900",
@@ -73,7 +73,7 @@ export const themes = {
         badge: "hb-bg-yellow-100 hb-text-yellow-900 shadow",
         postTitle: "hover:hb-text-yellow-700",
         secondaryLink: "hover:hb-text-yellow-700",
-        dismiss: "text-white"
+        dismiss: "hb-text-white"
     },
     teal: {
         wrapper: "hb-bg-teal-500 hb-text-teal-100",
@@ -81,7 +81,7 @@ export const themes = {
         badge: "hb-bg-teal-900 hb-text-teal-100 shadow",
         postTitle: "hover:hb-text-teal-300",
         secondaryLink: "hover:hb-text-teal-300",
-        dismiss: "text-white"
+        dismiss: "hb-text-white"
     },
     red: {
         wrapper: "hb-bg-red-400 hb-text-red-900",
@@ -89,6 +89,6 @@ export const themes = {
         badge: "hb-bg-red-100 hb-text-red-900 shadow",
         postTitle: "hover:hb-text-red-100",
         secondaryLink: "hover:hb-text-red-100",
-        dismiss: "text-white"
+        dismiss: "hb-text-white"
     },
 }

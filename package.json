@@ -1,6 +1,6 @@
 {
     "name": "@reecem/h-bar",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Lightweight Announcement Bar with Tailwindcss, extendable too",
     "main": "dist/hBar.js",
     "scripts": {

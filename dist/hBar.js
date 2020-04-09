@@ -403,7 +403,7 @@ module.exports = function (list, options) {
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".hb-bg-white{background-color:#fff}.hb-bg-gray-400{background-color:#cbd5e0}.hb-bg-gray-900{background-color:#1a202c}.hb-bg-red-100{background-color:#fff5f5}.hb-bg-red-400{background-color:#fc8181}.hb-bg-orange-300{background-color:#fbd38d}.hb-bg-orange-800{background-color:#9c4221}.hb-bg-yellow-100{background-color:ivory}.hb-bg-yellow-300{background-color:#faf089}.hb-bg-green-100{background-color:#f0fff4}.hb-bg-green-600{background-color:#38a169}.hb-bg-teal-500{background-color:#38b2ac}.hb-bg-teal-900{background-color:#234e52}.hb-bg-blue-100{background-color:#ebf8ff}.hb-bg-blue-900{background-color:#2a4365}.hb-bg-indigo-100{background-color:#ebf4ff}.hb-bg-indigo-800{background-color:#434190}.hb-rounded-full{border-radius:9999px}.hb-cursor-pointer{cursor:pointer}.hb-flex{display:flex}.hb-inline-flex{display:inline-flex}.hb-items-center{align-items:center}.hb-justify-between{justify-content:space-between}.hb-font-semibold{font-weight:600}.hb-leading-relaxed{line-height:1.625}.hb-mx-2{margin-left:.5rem;margin-right:.5rem}.hb-mx-5{margin-left:1.25rem;margin-right:1.25rem}.hb-px-1{padding-left:.25rem;padding-right:.25rem}.hb-py-2{padding-top:.5rem;padding-bottom:.5rem}.hb-px-2{padding-left:.5rem;padding-right:.5rem}.hb-text-gray-100{color:#f7fafc}.hb-text-gray-900{color:#1a202c}.hb-text-red-900{color:#742a2a}.hb-text-orange-100{color:#fffaf0}.hb-text-orange-900{color:#7b341e}.hb-text-yellow-900{color:#744210}.hb-text-green-100{color:#f0fff4}.hb-text-green-900{color:#22543d}.hb-text-teal-100{color:#e6fffa}.hb-text-blue-100{color:#ebf8ff}.hb-text-blue-900{color:#2a4365}.hb-text-indigo-100{color:#ebf4ff}.hb-text-indigo-900{color:#3c366b}.hover\\:hb-text-gray-300:hover{color:#e2e8f0}.hover\\:hb-text-gray-600:hover{color:#718096}.hover\\:hb-text-red-100:hover{color:#fff5f5}.hover\\:hb-text-orange-700:hover{color:#c05621}.hover\\:hb-text-yellow-700:hover{color:#b7791f}.hover\\:hb-text-green-300:hover{color:#9ae6b4}.hover\\:hb-text-teal-300:hover{color:#81e6d9}.hover\\:hb-text-blue-300:hover{color:#90cdf4}.hover\\:hb-text-indigo-300:hover{color:#a3bffa}.hb-text-xs{font-size:.75rem}.hb-text-sm{font-size:.875rem}.hb-uppercase{text-transform:uppercase}.hover\\:hb-underline:hover{text-decoration:underline}.hb-tracking-wider{letter-spacing:.05em}.hb-w-full{width:100%}a{color:inherit;text-decoration:inherit;background-color:transparent}*{box-sizing:border-box;border:0 solid #e2e8f0}.fade-in-top{-webkit-animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1);animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1)}@-webkit-keyframes fade-in-top{to{transform:translateY(0);opacity:1}}@keyframes fade-in-top{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@media (min-width:640px){.sm\\:hb-flex-row{flex-direction:row}}@media (min-width:768px){.md\\:hb-flex-row{flex-direction:row}.md\\:hb-px-20{padding-left:5rem;padding-right:5rem}}", ""]);
+exports.push([module.i, ".hb-bg-white{background-color:#fff}.hb-bg-gray-400{background-color:#cbd5e0}.hb-bg-gray-900{background-color:#1a202c}.hb-bg-red-100{background-color:#fff5f5}.hb-bg-red-400{background-color:#fc8181}.hb-bg-orange-300{background-color:#fbd38d}.hb-bg-orange-800{background-color:#9c4221}.hb-bg-yellow-100{background-color:ivory}.hb-bg-yellow-300{background-color:#faf089}.hb-bg-green-100{background-color:#f0fff4}.hb-bg-green-600{background-color:#38a169}.hb-bg-teal-500{background-color:#38b2ac}.hb-bg-teal-900{background-color:#234e52}.hb-bg-blue-100{background-color:#ebf8ff}.hb-bg-blue-900{background-color:#2a4365}.hb-bg-indigo-100{background-color:#ebf4ff}.hb-bg-indigo-800{background-color:#434190}.hover\\:hb-bg-gray-800:hover{background-color:#2d3748}.focus\\:hb-bg-gray-800:focus{background-color:#2d3748}.hb-rounded-md{border-radius:.375rem}.hb-rounded-full{border-radius:9999px}.hb-cursor-pointer{cursor:pointer}.hb-flex{display:flex}.hb-inline-flex{display:inline-flex}.hb-items-center{align-items:center}.hb-justify-between{justify-content:space-between}.hb-font-semibold{font-weight:600}.hb-h-3{height:.75rem}.hb-h-4{height:1rem}.hb-leading-relaxed{line-height:1.625}.hb-mx-2{margin-left:.5rem;margin-right:.5rem}.hb-mx-5{margin-left:1.25rem;margin-right:1.25rem}.hb--mr-1{margin-right:-.25rem}.focus\\:hb-outline-none:focus{outline:0}.hb-p-1{padding:.25rem}.hb-px-1{padding-left:.25rem;padding-right:.25rem}.hb-py-2{padding-top:.5rem;padding-bottom:.5rem}.hb-px-2{padding-left:.5rem;padding-right:.5rem}.hb-text-white{color:#fff}.hb-text-gray-100{color:#f7fafc}.hb-text-gray-900{color:#1a202c}.hb-text-red-900{color:#742a2a}.hb-text-orange-100{color:#fffaf0}.hb-text-orange-900{color:#7b341e}.hb-text-yellow-900{color:#744210}.hb-text-green-100{color:#f0fff4}.hb-text-green-900{color:#22543d}.hb-text-teal-100{color:#e6fffa}.hb-text-blue-100{color:#ebf8ff}.hb-text-blue-900{color:#2a4365}.hb-text-indigo-100{color:#ebf4ff}.hb-text-indigo-900{color:#3c366b}.hover\\:hb-text-gray-300:hover{color:#e2e8f0}.hover\\:hb-text-gray-600:hover{color:#718096}.hover\\:hb-text-red-100:hover{color:#fff5f5}.hover\\:hb-text-orange-700:hover{color:#c05621}.hover\\:hb-text-yellow-700:hover{color:#b7791f}.hover\\:hb-text-green-300:hover{color:#9ae6b4}.hover\\:hb-text-teal-300:hover{color:#81e6d9}.hover\\:hb-text-blue-300:hover{color:#90cdf4}.hover\\:hb-text-indigo-300:hover{color:#a3bffa}.hb-text-xs{font-size:.75rem}.hb-text-sm{font-size:.875rem}.hb-uppercase{text-transform:uppercase}.hover\\:hb-underline:hover{text-decoration:underline}.hb-tracking-wider{letter-spacing:.05em}.hb-w-3{width:.75rem}.hb-w-4{width:1rem}.hb-w-full{width:100%}a{color:inherit;text-decoration:inherit;background-color:transparent}*{box-sizing:border-box;border:0 solid #e2e8f0}.fade-in-top{-webkit-animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1);animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1)}@-webkit-keyframes fade-in-top{to{transform:translateY(0);opacity:1}}@keyframes fade-in-top{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@media (min-width:640px){.sm\\:hb-flex-row{flex-direction:row}}@media (min-width:768px){.md\\:hb-flex-row{flex-direction:row}.md\\:hb-px-20{padding-left:5rem;padding-right:5rem}}", ""]);
 // Exports
 module.exports = exports;
 
@@ -513,6 +513,7 @@ function toComment(sourceMap) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./src/styles.css
@@ -636,7 +637,7 @@ var themes = {
     badge: "hb-bg-white hb-text-gray-900",
     postTitle: "hover:hb-text-gray-300",
     secondaryLink: "hover:hb-text-gray-300",
-    dismiss: "text-white"
+    dismiss: "hb-text-white"
   },
   lightGray: {
     wrapper: "hb-bg-gray-400 hb-text-gray-900",
@@ -644,7 +645,7 @@ var themes = {
     badge: "hb-bg-white hb-text-gray-900 shadow",
     postTitle: "hover:hb-text-gray-600",
     secondaryLink: "hover:hb-text-gray-600",
-    dismiss: "text-white"
+    dismiss: "hb-text-white"
   },
   blue: {
     wrapper: "hb-bg-blue-900 hb-text-blue-100",
@@ -652,7 +653,7 @@ var themes = {
     badge: "hb-bg-blue-100 hb-text-blue-900 shadow",
     postTitle: "hover:hb-text-blue-300",
     secondaryLink: "hover:hb-text-blue-300",
-    dismiss: "text-white"
+    dismiss: "hb-text-white"
   },
   green: {
     wrapper: "hb-bg-green-600 hb-text-green-100",
@@ -660,7 +661,7 @@ var themes = {
     badge: "hb-bg-green-100 hb-text-green-900",
     postTitle: "hover:hb-text-green-300",
     secondaryLink: "hover:hb-text-green-300",
-    dismiss: "text-white"
+    dismiss: "hb-text-white"
   },
   indigo: {
     wrapper: "hb-bg-indigo-800 hb-text-indigo-100",
@@ -668,7 +669,7 @@ var themes = {
     badge: "hb-bg-indigo-100 hb-text-indigo-900 shadow",
     postTitle: "hover:hb-text-indigo-300",
     secondaryLink: "hover:hb-text-indigo-300",
-    dismiss: "text-white"
+    dismiss: "hb-text-white"
   },
   orange: {
     wrapper: "hb-bg-orange-300 hb-text-orange-900",
@@ -676,7 +677,7 @@ var themes = {
     badge: "hb-bg-orange-800 hb-text-orange-100 shadow",
     postTitle: "hover:hb-text-orange-700",
     secondaryLink: "hover:hb-text-orange-700",
-    dismiss: "text-white"
+    dismiss: "hb-text-white"
   },
   yellow: {
     wrapper: "hb-bg-yellow-300 hb-text-yellow-900",
@@ -684,7 +685,7 @@ var themes = {
     badge: "hb-bg-yellow-100 hb-text-yellow-900 shadow",
     postTitle: "hover:hb-text-yellow-700",
     secondaryLink: "hover:hb-text-yellow-700",
-    dismiss: "text-white"
+    dismiss: "hb-text-white"
   },
   teal: {
     wrapper: "hb-bg-teal-500 hb-text-teal-100",
@@ -692,7 +693,7 @@ var themes = {
     badge: "hb-bg-teal-900 hb-text-teal-100 shadow",
     postTitle: "hover:hb-text-teal-300",
     secondaryLink: "hover:hb-text-teal-300",
-    dismiss: "text-white"
+    dismiss: "hb-text-white"
   },
   red: {
     wrapper: "hb-bg-red-400 hb-text-red-900",
@@ -700,7 +701,7 @@ var themes = {
     badge: "hb-bg-red-100 hb-text-red-900 shadow",
     postTitle: "hover:hb-text-red-100",
     secondaryLink: "hover:hb-text-red-100",
-    dismiss: "text-white"
+    dismiss: "hb-text-white"
   }
 };
 // CONCATENATED MODULE: ./src/functions/init.js
@@ -756,13 +757,17 @@ function init(_ref) {
   return this;
 }
 // CONCATENATED MODULE: ./src/utils.js
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 // Thanks @stimulus:
 // https://github.com/stimulusjs/stimulus/blob/master/packages/%40stimulus/core/src/application.ts
@@ -913,7 +918,7 @@ var hBar = {
       badge.innerText = _this2.badge;
       postLink.href = _this2.postLink;
       postLink.innerText = _this2.postTitle;
-      postLink.innerHTML += "\n            <svg class=\"h-3 w-3\" viewBox=\"0 0 20 20\" fill=\"currentColor\">\n                <path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\"/>\n            </svg>\n            ";
+      postLink.innerHTML += "\n            <svg class=\"hb-h-3 hb-w-3\" viewBox=\"0 0 20 20\" fill=\"currentColor\">\n                <path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\"/>\n            </svg>\n            ";
       var postElement = newElement('div', {
         classes: "".concat(_this2.styling.linkWrapper, " ").concat(themes[_this2.theme].linkWrapper),
         children: [badge, postLink]
@@ -962,9 +967,9 @@ var hBar = {
     var _this3 = this;
 
     var dismiss = newElement('button', {
-      classes: '-mr-1 flex p-1 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-gray-800'
+      classes: 'hb--mr-1 hb-flex hb-p-1 hb-rounded-md hover:hb-bg-gray-800 focus:hb-outline-none focus:hb-bg-gray-800'
     });
-    dismiss.innerHTML = "<svg class=\"h-4 w-4 ".concat(themes[this.theme].dismiss, "\" stroke=\"currentColor\" fill=\"none\" viewBox=\"0 0 24 24\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path>\n              </svg>");
+    dismiss.innerHTML = "<svg class=\"hb-h-4 hb-w-4 ".concat(themes[this.theme].dismiss, "\" stroke=\"currentColor\" fill=\"none\" viewBox=\"0 0 24 24\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path>\n              </svg>");
 
     dismiss.onclick = function (e) {
       e.preventDefault(); // just do it early if we not logging time.

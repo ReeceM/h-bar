@@ -86,7 +86,7 @@ const hBar = {
             postLink.innerText = this.postTitle;
 
             postLink.innerHTML += `
-            <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+            <svg class="hb-h-3 hb-w-3" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
             </svg>
             `
@@ -137,10 +137,10 @@ const hBar = {
      */
     dismissibleButton() {
         let dismiss = newElement('button', {
-            classes: '-mr-1 flex p-1 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-gray-800',
+            classes: 'hb--mr-1 hb-flex hb-p-1 hb-rounded-md hover:hb-bg-gray-800 focus:hb-outline-none focus:hb-bg-gray-800',
         });
 
-        dismiss.innerHTML = `<svg class="h-4 w-4 ${themes[this.theme].dismiss}" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        dismiss.innerHTML = `<svg class="hb-h-4 hb-w-4 ${themes[this.theme].dismiss}" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
               </svg>`
 

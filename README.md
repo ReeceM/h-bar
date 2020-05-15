@@ -89,8 +89,8 @@ The initialization object currently has this structure and defaults:
 {
     url: "https://your.blog/api/....",
     onCompleted: "callback function",
-    postLink: "The link url, can be force and no need to fetch from API",
-    postTitle: "The link url, can be force and no need to fetch from API",
+    link: "The link url, can be force and no need to fetch from API",
+    title: "The link url, can be force and no need to fetch from API",
     secondaryLinks: [
         {
             title: "Docs",
@@ -99,20 +99,10 @@ The initialization object currently has this structure and defaults:
     ],
     parser: (data) => {/** Parser function */}
     dismissible: false, // dismissible banner flag
-    dismissFor: new Date('2020-03-30'), // would dismiss it till end of march 30th
-    options: {
-        theme: "gray",
-        secondaryLinks: [],
-        onCompleted: null,
-        fetchOptions: {
-            "method": "GET",
-            "mode": "cors",
-            "cache": "no-cache",
-            "headers": {
-                "Accept": "application/json"
-            },
-            "redirect": "follow"
-        }
+    dismissFor: new Date('2020-03-30'), // would dismiss it till end of March 30th 2020
+    theme: "gray",
+    headers: {
+        "Authorization": "Bearer {TOKEN}"
     },
     customStyles: {
         wrapper: "hb-flex hb-w-full hd-flex-col md:hb-flex-row sm:hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between",

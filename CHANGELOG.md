@@ -2,6 +2,18 @@
 
 All notable changes to `h-bar` will be documented in this file.
 
+# 1.1.0 - 2020-05-15
+
+***Changes***
+
+- Only headers can be passed to the fetch function configs.
+    - only doing get requests basically.
+- changed the names of the options values to not be so odd
+
+__FIX__
+
+- the fetch options config cleared all defaults
+
 # 1.0.1 - 2020-04-09
 
 __FIX__

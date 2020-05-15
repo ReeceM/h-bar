@@ -1,7 +1,7 @@
 /**
  * h-bar announcement banner
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @author ReeceM
  */
 import "./styles.css"
@@ -14,7 +14,7 @@ const hBar = {
     /**
      * h-bar version number
     */
-    version: "1.0.0",
+    version: "1.1.0",
 
     /**
      * Initialise the hBar package
@@ -137,7 +137,7 @@ const hBar = {
      */
     dismissibleButton() {
         let dismiss = newElement('button', {
-            classes: 'hb--mr-1 hb-flex hb-p-1 hb-rounded-md hover:hb-bg-gray-800 focus:hb-outline-none focus:hb-bg-gray-800',
+            classes: 'hb--mr-2 hb-flex hb-p-1 hb-rounded-md hover:hb-text-white hover:hb-bg-gray-800 focus:hb-outline-none focus:hb-bg-gray-800',
         });
 
         dismiss.innerHTML = `<svg class="hb-h-4 hb-w-4 ${themes[this.theme].dismiss}" stroke="currentColor" fill="none" viewBox="0 0 24 24">

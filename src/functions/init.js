@@ -4,57 +4,45 @@ import { styling } from "../config/styling"
 
 /**
  *
- * @param {object} param0
- * @param {string} param0.url
- * @param {string} param0.ele The element id
- * @param {boolean} param0.dismissible
- * @param {Date|boolean} param0.dismissFor
- * @param {string} param0.badge
- * @param {array} param0.secondaryLinks
- * @param {object} param0.options
- * @param {object} param0.customStyles
- * @param {function} param0.parser
- * @param {function} param0.onCompleted
- * @param {string} param0.link Manual override
- * @param {string} param0.title Manual Override
+ * @param {object} options
+ * @param {string} options.url
+ * @param {string} options.ele The element id
+ * @param {boolean} options.dismissible
+ * @param {Date|boolean} options.dismissFor
+ * @param {string} options.badge
+ * @param {array} options.secondaryLinks
+ * @param {object} options.headers
+ * @param {object} options.customStyles
+ * @param {function} options.parser
+ * @param {function} options.onCompleted
+ * @param {string} options.link Manual override
+ * @param {string} options.title Manual Override
  */
-export function init({
-    url, /** The URL to fetch data from */
-    ele,
-    dismissible,
-    dismissFor,
-    badge,
-    secondaryLinks,
-    options,
-    customStyles,
-    onCompleted,
-    parser,
-    link, /** The link for the new post/article, manual override */
-    title, /** The title of the post/article, manual override */
-}) {
-    this.url = url;
+export function init(options = {}) {
+    this.url = options.url;
 
-    this.ele = ele || 'h-bar';
+    this.ele = options.ele || 'h-bar';
 
     // we will default to false for this
-    this.dismissible = dismissible || false;
+    this.dismissible = options.dismissible || false;
 
-    this.dismissFor = dismissFor || false;
+    this.dismissFor = options.dismissFor || false;
 
-    this.config = Object.assign(config, options);
-    this.styling = Object.assign(styling, customStyles);
+    this.config = config;
+    this.config.fetchOptions.headers = Object.assign(config.fetchOptions.headers, options.headers)
+    this.styling = Object.assign(styling, options.customStyles);
 
-    this.secondaryLinks = secondaryLinks
+    this.secondaryLinks = options.secondaryLinks
 
-    this.onCompleted = onCompleted || function () { };
+    this.onCompleted = options.onCompleted || function () { };
 
-    this.badge = badge || 'New';
-    this.postLink = link
-    this.postTitle = title
+    this.badge = options.badge || 'New';
+    this.postLink = options.link
+    this.postTitle = options.title
 
-    this.theme = this.config.theme
+    this.theme = options.theme
 
-    initNormalise(parser)
+    initNormalise(options.parser)
 
     return this
 }

@@ -403,7 +403,7 @@ module.exports = function (list, options) {
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".hb-bg-white{background-color:#fff}.hb-bg-gray-400{background-color:#cbd5e0}.hb-bg-gray-900{background-color:#1a202c}.hb-bg-red-100{background-color:#fff5f5}.hb-bg-red-400{background-color:#fc8181}.hb-bg-orange-300{background-color:#fbd38d}.hb-bg-orange-800{background-color:#9c4221}.hb-bg-yellow-100{background-color:ivory}.hb-bg-yellow-300{background-color:#faf089}.hb-bg-green-100{background-color:#f0fff4}.hb-bg-green-600{background-color:#38a169}.hb-bg-teal-500{background-color:#38b2ac}.hb-bg-teal-900{background-color:#234e52}.hb-bg-blue-100{background-color:#ebf8ff}.hb-bg-blue-900{background-color:#2a4365}.hb-bg-indigo-100{background-color:#ebf4ff}.hb-bg-indigo-800{background-color:#434190}.hover\\:hb-bg-gray-800:hover{background-color:#2d3748}.focus\\:hb-bg-gray-800:focus{background-color:#2d3748}.hb-rounded-md{border-radius:.375rem}.hb-rounded-full{border-radius:9999px}.hb-cursor-pointer{cursor:pointer}.hb-flex{display:flex}.hb-inline-flex{display:inline-flex}.hb-items-center{align-items:center}.hb-justify-between{justify-content:space-between}.hb-font-semibold{font-weight:600}.hb-h-3{height:.75rem}.hb-h-4{height:1rem}.hb-leading-relaxed{line-height:1.625}.hb-mx-2{margin-left:.5rem;margin-right:.5rem}.hb-mx-5{margin-left:1.25rem;margin-right:1.25rem}.hb--mr-1{margin-right:-.25rem}.focus\\:hb-outline-none:focus{outline:0}.hb-p-1{padding:.25rem}.hb-px-1{padding-left:.25rem;padding-right:.25rem}.hb-py-2{padding-top:.5rem;padding-bottom:.5rem}.hb-px-2{padding-left:.5rem;padding-right:.5rem}.hb-text-white{color:#fff}.hb-text-gray-100{color:#f7fafc}.hb-text-gray-900{color:#1a202c}.hb-text-red-900{color:#742a2a}.hb-text-orange-100{color:#fffaf0}.hb-text-orange-900{color:#7b341e}.hb-text-yellow-900{color:#744210}.hb-text-green-100{color:#f0fff4}.hb-text-green-900{color:#22543d}.hb-text-teal-100{color:#e6fffa}.hb-text-blue-100{color:#ebf8ff}.hb-text-blue-900{color:#2a4365}.hb-text-indigo-100{color:#ebf4ff}.hb-text-indigo-900{color:#3c366b}.hover\\:hb-text-gray-300:hover{color:#e2e8f0}.hover\\:hb-text-gray-600:hover{color:#718096}.hover\\:hb-text-red-100:hover{color:#fff5f5}.hover\\:hb-text-orange-700:hover{color:#c05621}.hover\\:hb-text-yellow-700:hover{color:#b7791f}.hover\\:hb-text-green-300:hover{color:#9ae6b4}.hover\\:hb-text-teal-300:hover{color:#81e6d9}.hover\\:hb-text-blue-300:hover{color:#90cdf4}.hover\\:hb-text-indigo-300:hover{color:#a3bffa}.hb-text-xs{font-size:.75rem}.hb-text-sm{font-size:.875rem}.hb-uppercase{text-transform:uppercase}.hover\\:hb-underline:hover{text-decoration:underline}.hb-tracking-wider{letter-spacing:.05em}.hb-w-3{width:.75rem}.hb-w-4{width:1rem}.hb-w-full{width:100%}a{color:inherit;text-decoration:inherit;background-color:transparent}*{box-sizing:border-box;border:0 solid #e2e8f0}.fade-in-top{-webkit-animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1);animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1)}@-webkit-keyframes fade-in-top{to{transform:translateY(0);opacity:1}}@keyframes fade-in-top{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@media (min-width:640px){.sm\\:hb-flex-row{flex-direction:row}}@media (min-width:768px){.md\\:hb-flex-row{flex-direction:row}.md\\:hb-px-20{padding-left:5rem;padding-right:5rem}}", ""]);
+exports.push([module.i, ".hb-bg-white{background-color:#fff}.hb-bg-gray-400{background-color:#cbd5e0}.hb-bg-gray-900{background-color:#1a202c}.hb-bg-red-100{background-color:#fff5f5}.hb-bg-red-400{background-color:#fc8181}.hb-bg-orange-300{background-color:#fbd38d}.hb-bg-orange-800{background-color:#9c4221}.hb-bg-yellow-100{background-color:ivory}.hb-bg-yellow-300{background-color:#faf089}.hb-bg-green-100{background-color:#f0fff4}.hb-bg-green-600{background-color:#38a169}.hb-bg-teal-500{background-color:#38b2ac}.hb-bg-teal-900{background-color:#234e52}.hb-bg-blue-100{background-color:#ebf8ff}.hb-bg-blue-900{background-color:#2a4365}.hb-bg-indigo-100{background-color:#ebf4ff}.hb-bg-indigo-800{background-color:#434190}.hover\\:hb-bg-gray-800:hover{background-color:#2d3748}.focus\\:hb-bg-gray-800:focus{background-color:#2d3748}.hb-rounded-md{border-radius:.375rem}.hb-rounded-full{border-radius:9999px}.hb-cursor-pointer{cursor:pointer}.hb-flex{display:flex}.hb-inline-flex{display:inline-flex}.hb-items-center{align-items:center}.hb-justify-between{justify-content:space-between}.hb-font-semibold{font-weight:600}.hb-h-3{height:.75rem}.hb-h-4{height:1rem}.hb-leading-relaxed{line-height:1.625}.hb-mx-2{margin-left:.5rem;margin-right:.5rem}.hb-mx-5{margin-left:1.25rem;margin-right:1.25rem}.hb--mr-2{margin-right:-.5rem}.focus\\:hb-outline-none:focus{outline:0}.hb-p-1{padding:.25rem}.hb-px-1{padding-left:.25rem;padding-right:.25rem}.hb-py-2{padding-top:.5rem;padding-bottom:.5rem}.hb-px-2{padding-left:.5rem;padding-right:.5rem}.hb-text-gray-100{color:#f7fafc}.hb-text-gray-800{color:#2d3748}.hb-text-gray-900{color:#1a202c}.hb-text-red-900{color:#742a2a}.hb-text-orange-100{color:#fffaf0}.hb-text-orange-900{color:#7b341e}.hb-text-yellow-900{color:#744210}.hb-text-green-100{color:#f0fff4}.hb-text-green-900{color:#22543d}.hb-text-teal-100{color:#e6fffa}.hb-text-blue-100{color:#ebf8ff}.hb-text-blue-900{color:#2a4365}.hb-text-indigo-100{color:#ebf4ff}.hb-text-indigo-900{color:#3c366b}.hover\\:hb-text-white:hover{color:#fff}.hover\\:hb-text-gray-300:hover{color:#e2e8f0}.hover\\:hb-text-gray-600:hover{color:#718096}.hover\\:hb-text-red-100:hover{color:#fff5f5}.hover\\:hb-text-orange-700:hover{color:#c05621}.hover\\:hb-text-yellow-700:hover{color:#b7791f}.hover\\:hb-text-green-300:hover{color:#9ae6b4}.hover\\:hb-text-teal-300:hover{color:#81e6d9}.hover\\:hb-text-blue-300:hover{color:#90cdf4}.hover\\:hb-text-indigo-300:hover{color:#a3bffa}.hb-text-xs{font-size:.75rem}.hb-text-sm{font-size:.875rem}.hb-uppercase{text-transform:uppercase}.hover\\:hb-underline:hover{text-decoration:underline}.hb-tracking-wider{letter-spacing:.05em}.hb-w-3{width:.75rem}.hb-w-4{width:1rem}.hb-w-full{width:100%}a{color:inherit;text-decoration:inherit;background-color:transparent}*{box-sizing:border-box;border:0 solid #e2e8f0}.fade-in-top{-webkit-animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1);animation:fade-in-top .8s cubic-bezier(.39,.575,.565,1)}@-webkit-keyframes fade-in-top{to{transform:translateY(0);opacity:1}}@keyframes fade-in-top{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@media (min-width:640px){.sm\\:hb-flex-row{flex-direction:row}}@media (min-width:768px){.md\\:hb-flex-row{flex-direction:row}.md\\:hb-px-20{padding-left:5rem;padding-right:5rem}}", ""]);
 // Exports
 module.exports = exports;
 
@@ -524,11 +524,33 @@ var styles = __webpack_require__(0);
  * The default configuration for the package
  *
  * @var {object} config
+ * @var {string} config.url
+ * @var {string} config.ele
+ * @var {boolean} config.dismissible
+ * @var {Date} config.dismissFor
+ * @var {string} config.badge
+ * @var {string} config.theme
+ * @var {array} config.secondaryLinks
+ * @var {object} config.customStyles
+ * @var {function} config.onCompleted
+ * @var {function} config.parser
+ * @var {string} config.link
+ * @var {string} config.title
+ * @var {object} config.fetchOptions
  */
 var config = {
   url: '',
+  ele: 'h-bar',
+  dismissible: false,
+  dismissFor: null,
+  badge: 'New',
   theme: "gray",
   secondaryLinks: [],
+  customStyles: {},
+  onCompleted: function onCompleted() {},
+  parser: null,
+  link: null,
+  title: null,
   fetchOptions: {
     method: 'GET',
     mode: 'cors',
@@ -637,7 +659,7 @@ var themes = {
     badge: "hb-bg-white hb-text-gray-900",
     postTitle: "hover:hb-text-gray-300",
     secondaryLink: "hover:hb-text-gray-300",
-    dismiss: "hb-text-white"
+    dismiss: "hb-text-gray-800"
   },
   lightGray: {
     wrapper: "hb-bg-gray-400 hb-text-gray-900",
@@ -645,7 +667,7 @@ var themes = {
     badge: "hb-bg-white hb-text-gray-900 shadow",
     postTitle: "hover:hb-text-gray-600",
     secondaryLink: "hover:hb-text-gray-600",
-    dismiss: "hb-text-white"
+    dismiss: "hb-text-gray-800"
   },
   blue: {
     wrapper: "hb-bg-blue-900 hb-text-blue-100",
@@ -653,7 +675,7 @@ var themes = {
     badge: "hb-bg-blue-100 hb-text-blue-900 shadow",
     postTitle: "hover:hb-text-blue-300",
     secondaryLink: "hover:hb-text-blue-300",
-    dismiss: "hb-text-white"
+    dismiss: "hb-text-gray-800"
   },
   green: {
     wrapper: "hb-bg-green-600 hb-text-green-100",
@@ -661,7 +683,7 @@ var themes = {
     badge: "hb-bg-green-100 hb-text-green-900",
     postTitle: "hover:hb-text-green-300",
     secondaryLink: "hover:hb-text-green-300",
-    dismiss: "hb-text-white"
+    dismiss: "hb-text-gray-800"
   },
   indigo: {
     wrapper: "hb-bg-indigo-800 hb-text-indigo-100",
@@ -669,7 +691,7 @@ var themes = {
     badge: "hb-bg-indigo-100 hb-text-indigo-900 shadow",
     postTitle: "hover:hb-text-indigo-300",
     secondaryLink: "hover:hb-text-indigo-300",
-    dismiss: "hb-text-white"
+    dismiss: "hb-text-gray-800"
   },
   orange: {
     wrapper: "hb-bg-orange-300 hb-text-orange-900",
@@ -677,7 +699,7 @@ var themes = {
     badge: "hb-bg-orange-800 hb-text-orange-100 shadow",
     postTitle: "hover:hb-text-orange-700",
     secondaryLink: "hover:hb-text-orange-700",
-    dismiss: "hb-text-white"
+    dismiss: "hb-text-gray-800"
   },
   yellow: {
     wrapper: "hb-bg-yellow-300 hb-text-yellow-900",
@@ -685,7 +707,7 @@ var themes = {
     badge: "hb-bg-yellow-100 hb-text-yellow-900 shadow",
     postTitle: "hover:hb-text-yellow-700",
     secondaryLink: "hover:hb-text-yellow-700",
-    dismiss: "hb-text-white"
+    dismiss: "hb-text-gray-800"
   },
   teal: {
     wrapper: "hb-bg-teal-500 hb-text-teal-100",
@@ -693,7 +715,7 @@ var themes = {
     badge: "hb-bg-teal-900 hb-text-teal-100 shadow",
     postTitle: "hover:hb-text-teal-300",
     secondaryLink: "hover:hb-text-teal-300",
-    dismiss: "hb-text-white"
+    dismiss: "hb-text-gray-800"
   },
   red: {
     wrapper: "hb-bg-red-400 hb-text-red-900",
@@ -701,7 +723,7 @@ var themes = {
     badge: "hb-bg-red-100 hb-text-red-900 shadow",
     postTitle: "hover:hb-text-red-100",
     secondaryLink: "hover:hb-text-red-100",
-    dismiss: "hb-text-white"
+    dismiss: "hb-text-gray-800"
   }
 };
 // CONCATENATED MODULE: ./src/functions/init.js
@@ -710,50 +732,40 @@ var themes = {
 
 /**
  *
- * @param {object} param0
- * @param {string} param0.url
- * @param {string} param0.ele The element id
- * @param {boolean} param0.dismissible
- * @param {Date|boolean} param0.dismissFor
- * @param {string} param0.badge
- * @param {array} param0.secondaryLinks
- * @param {object} param0.options
- * @param {object} param0.customStyles
- * @param {function} param0.parser
- * @param {function} param0.onCompleted
- * @param {string} param0.link Manual override
- * @param {string} param0.title Manual Override
+ * @param {object} options
+ * @param {string} options.url
+ * @param {string} options.ele The element id
+ * @param {boolean} options.dismissible
+ * @param {Date|boolean} options.dismissFor
+ * @param {string} options.badge
+ * @param {array} options.secondaryLinks
+ * @param {object} options.headers
+ * @param {object} options.customStyles
+ * @param {function} options.parser
+ * @param {function} options.onCompleted
+ * @param {string} options.link Manual override
+ * @param {string} options.title Manual Override
  */
 
-function init(_ref) {
-  var url = _ref.url,
-      ele = _ref.ele,
-      dismissible = _ref.dismissible,
-      dismissFor = _ref.dismissFor,
-      badge = _ref.badge,
-      secondaryLinks = _ref.secondaryLinks,
-      options = _ref.options,
-      customStyles = _ref.customStyles,
-      onCompleted = _ref.onCompleted,
-      parser = _ref.parser,
-      link = _ref.link,
-      title = _ref.title;
-  this.url = url;
-  this.ele = ele || 'h-bar'; // we will default to false for this
+function init() {
+  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  this.url = options.url;
+  this.ele = options.ele || 'h-bar'; // we will default to false for this
 
-  this.dismissible = dismissible || false;
-  this.dismissFor = dismissFor || false;
-  this.config = Object.assign(config, options);
-  this.styling = Object.assign(styling, customStyles);
-  this.secondaryLinks = secondaryLinks;
+  this.dismissible = options.dismissible || false;
+  this.dismissFor = options.dismissFor || false;
+  this.config = config;
+  this.config.fetchOptions.headers = Object.assign(config.fetchOptions.headers, options.headers);
+  this.styling = Object.assign(styling, options.customStyles);
+  this.secondaryLinks = options.secondaryLinks;
 
-  this.onCompleted = onCompleted || function () {};
+  this.onCompleted = options.onCompleted || function () {};
 
-  this.badge = badge || 'New';
-  this.postLink = link;
-  this.postTitle = title;
-  this.theme = this.config.theme;
-  initNormalise(parser);
+  this.badge = options.badge || 'New';
+  this.postLink = options.link;
+  this.postTitle = options.title;
+  this.theme = options.theme;
+  initNormalise(options.parser);
   return this;
 }
 // CONCATENATED MODULE: ./src/utils.js
@@ -824,13 +836,34 @@ function addClasses(element) {
 
   return element;
 }
+/**
+ * Binds all the methods on a JS Class to the `this` context of the class.
+ * Adapted from https://github.com/sindresorhus/auto-bind
+ * @param {object} self The `this` context of the class
+ * @return {object} The `this` context of the class
+ */
+
+function autoBind(self) {
+  var keys = Object.getOwnPropertyNames(self.constructor.prototype);
+
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    var val = self[key];
+
+    if (key !== 'constructor' && typeof val === 'function') {
+      self[key] = val.bind(self);
+    }
+  }
+
+  return self;
+}
 // CONCATENATED MODULE: ./src/index.js
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /**
  * h-bar announcement banner
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @author ReeceM
  */
 
@@ -842,7 +875,7 @@ var hBar = {
   /**
    * h-bar version number
   */
-  version: "1.0.0",
+  version: "1.1.0",
 
   /**
    * Initialise the hBar package
@@ -967,7 +1000,7 @@ var hBar = {
     var _this3 = this;
 
     var dismiss = newElement('button', {
-      classes: 'hb--mr-1 hb-flex hb-p-1 hb-rounded-md hover:hb-bg-gray-800 focus:hb-outline-none focus:hb-bg-gray-800'
+      classes: 'hb--mr-2 hb-flex hb-p-1 hb-rounded-md hover:hb-text-white hover:hb-bg-gray-800 focus:hb-outline-none focus:hb-bg-gray-800'
     });
     dismiss.innerHTML = "<svg class=\"hb-h-4 hb-w-4 ".concat(themes[this.theme].dismiss, "\" stroke=\"currentColor\" fill=\"none\" viewBox=\"0 0 24 24\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path>\n              </svg>");
 

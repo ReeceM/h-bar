@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <div id="h-bar"></div>
+    <div id="h-bar" data-template="#hbar_template"></div>
     <!-- HTML BELOW USED FROM: https://tailwindcomponents.com/component/simple-template -->
     <div class="text-white mt-0 border border-blue-800 py-0 w-full h-full" style="background-image:url('https://demos.onepagelove.com/html/leno/images/header-background.jpg')">
         <header class="flex md:justify-between p-8">
@@ -66,6 +66,21 @@
         </section>
     </div>
     <script src="../dist/hBar.js"></script>
+
+
+    <template id="hbar_template">
+        <div class="absolute top-auto right-0 w-full flex justify-center mt-5">
+            <div class="max-w-lg">
+                <div class="bg-orange-100 border-l-4 border-orange-900 text-orange-700 p-4" role="alert">
+                    <p class="font-bold">{% title %}</p>
+                    <p>
+                        <a href="{% link %}" class="hover:underline text-gray-700">Go to the GitHub Release</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </template>
+
     <script>
         /**
          * Below we are using the h-bar with the preset values and not from a blog.
@@ -99,24 +114,22 @@
         /**
          *  Add two(2) minutes to the delay to see it work :)
          */
-        var dismissMillis = (new Date()).setMinutes(dateToday.getMinutes() + 2);
+        // var dismissMillis = (new Date()).setMinutes(dateToday.getMinutes() + 2);
 
         hBar.init({
-            url: post_like_url,
+            el: "#h-bar",
+            url: github_release_link,
             onCompleted: (e) => {
                 console.log(e)
             },
-            theme: 'lightGray',
-            headers: {
-                "Authorization": "Bearer 12345",
-            },
+            theme: 'red',
             // dismissible: true,
             // dismissFor: new Date(dismissMillis),
             /**
              * Custom parser that also handles the response and can add extra data.
              * pick a different one to see the results.
              */
-            parser: post_parser,
+            parser: github_release,
             secondaryLinks: [
             {
                 title: "Docs",
@@ -128,7 +141,7 @@
             }
             ]
         })
-        hBar.fetchData()
+        hBar.fetch()
     </script>
 </body>
 </html>

@@ -190,11 +190,11 @@ When you set this and the banner is dismissed, the UTC milliseconds are stored i
 If you fail to set the value properly, it won't dismiss and the banner will show by default.
 
 
-### Testing
+## Testing
 
 _to come_ please make a PR if you know how to do it on JS.
 
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
@@ -202,9 +202,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
+## Security
 
-If you discover any security related issues, please email zsh.rce@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email zsh.rce@gmail.com instead of using the issue tracker. You can also use the [SECURITY](SECURITY.md) doc.
 
 ## Credits
 

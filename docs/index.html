@@ -1,0 +1,73 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+
+    <!-- Primary Meta Tags -->
+    <title>An Announcement Banner that is lightweight and customizable</title>
+    <meta name="title" content="An Announcement Banner that is lightweight and customizable">
+    <meta name="description" content="Simple and lightweight (~5.6kB gzipped) | Customizable with personal templates | Multiple default themes ready to go">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://reecem.github.io/h-bar">
+    <meta property="og:title" content="An Announcement Banner that is lightweight and customizable">
+    <meta property="og:description" content="Simple and lightweight (~5.6kB gzipped) | Customizable with personal templates | Multiple default themes ready to go">
+    <meta property="og:image" content="https://reecem.github.io/h-bar/h-bar.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://reecem.github.io/h-bar">
+    <meta property="twitter:title" content="An Announcement Banner that is lightweight and customizable">
+    <meta property="twitter:description" content="Simple and lightweight (~5.6kB gzipped) | Customizable with personal templates | Multiple default themes ready to go">
+    <meta property="twitter:image" content="https://reecem.github.io/h-bar/h-bar.png">
+</head>
+
+<body>
+    <div id="h-bar" style="position: -webkit-sticky; position: sticky; top: 0;" data-template="#hbar_template"></div>
+    <div id="app"></div>
+    <script>
+        window.$docsify = {
+            coverpage: true
+        }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src"https://cdn.jsdelivr.net/npm/@reecem/h-bar@latest/dist/hBar.min.js"></script>
+
+    <template id="hbar_template">
+        <!-- Piggy backs off the h-bar styles that are default -->
+        <div
+            class="hb-flex hb-w-full hd-flex-col md:hb-flex-row sm:hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between hb-bg-indigo-400 hb-text-indigo-900">
+            <div class="hb-flex hb-items-center"><span
+                    class="hb-px-2 hb-mx-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs hb-bg-indigo-100 hb-text-indigo-900 shadow">New
+                    Release</span><a class="hover:hb-underline hb-inline-flex hb-items-center hover:hb-text-indigo-100"
+                    href="{% link %}" target="_blank">{% title %}
+                    <svg class="hb-h-3 hb-w-3" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a></div>
+            <div class="hb-flex hb-items-center"></div>
+        </div>
+        <!-- <div class="absolute top-auto right-0 w-full flex justify-center mt-5">
+        <div class="max-w-lg">
+            <div class="bg-orange-100 border-l-4 border-orange-900 text-orange-700 p-4" role="alert">
+                <p class="font-bold">{% title %}</p>
+                <p>
+                    <a href="{% link %}" class="hover:underline text-gray-700">Go to the GitHub Release</a>
+                </p>
+            </div>
+        </div>
+    </div> -->
+    </template>
+</body>
+
+</html>

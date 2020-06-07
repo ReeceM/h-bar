@@ -1,6 +1,5 @@
 import { domReady, newElement, isDismissed } from "../utils";
-import { styling } from '../config/styling';
-
+import { styling } from './styling';
 
 export default class Banner {
 

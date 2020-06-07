@@ -1,114 +1,142 @@
 /**
- * h-bar announcement banner
+ * h-bar banner and dynamic announcement library
  *
- * @version 1.0.0
- * @author ReeceM
+ * @version 2.0.0
+ * @license MIT
+ * @copyright @ReeceM
  */
 import "./styles.css"
-import { init } from "./functions/init"
-import { themes } from "./config/styling"
-import { domReady, newElement } from "./utils"
+
+import { init } from './functions/init';
 import { normaliser } from "./functions/normalise"
+import { getElementOptions, isDismissed } from "./utils";
+import Renderer from './functions/renderer';
+import Banner from './banner/banner';
 
+/**
+ * Set all the configuration options for the hBar library
+ *
+ * @property {string} el The element id
+ * @property {string} url
+ * @property {boolean} dismissible
+ * @property {Date|boolean} dismissFor
+ * @property {string} badge
+ * @property {DOMPurify} DOMPurify the DOMPurify library
+ * @property {array} secondaryLinks
+ * @property {object} headers
+ * @property {object} customStyles
+ * @property {function} parser
+ * @property {object} renderer
+ * @property {function} onCompleted
+ * @property {function} onFailure
+ * @property {string} link Manual override
+ * @property {string} title Manual Override
+ */
 const hBar = {
-    /**
-     * h-bar version number
-    */
-    version: "1.0.0",
+    version: "2.0.0",
+    rendered: false,
+    fetching: false,
+    usingBanner: true,
 
     /**
-     * Initialise the hBar package
+     * Set all the configuration options for the hBar library
      *
-     * @inheritdoc
-     * @returns {hBar}
+     * @param {object} options
+     * @param {string} options.el The element id
+     * @param {string} options.url
+     * @param {boolean} options.dismissible
+     * @param {Date|boolean} options.dismissFor
+     * @param {string} options.badge
+     * @param {array} options.secondaryLinks
+     * @param {object} options.headers
+     * @param {object} options.customStyles
+     * @param {function} options.parser
+     * @param {function} options.onCompleted
+     * @param {string} options.link Manual override
+     * @param {string} options.title Manual Override
      */
-    init: init,
+    init: function (options = {}) {
+        Object.assign(this, init(options))
+
+        this.$elementOpt = getElementOptions(document.querySelector(this.$el));
+
+        if (this.$elementOpt.template) {
+            this.renderer = new Renderer(this.$elementOpt.template, this.DOMPurify);
+        } else if (options.renderer) {
+            /**
+             * @todo this was added on a whim... bad idea possibly
+             */
+            this.renderer = new options.renderer(this);
+        } else {
+            this.renderer = new Banner(this);
+        }
+
+        Object.defineProperties(this, {
+            'renderer': {
+                configurable: false,
+                writable: false,
+            }
+        })
+    },
 
     /**
-     * Fetch the data from the endpoint
+     * Gets the data from the url endpoint.
+     *
+     * This is called by the
      */
-    fetchData() {
-        if (this.isDismissed()) return;
+    fetch: function () {
 
-        fetch(this.url, this.config.fetchOptions)
+        if (this.rendered) return;
+
+        if (isDismissed()) return;
+
+        this.fetching = true;
+
+        fetch(this.url, this.fetchOptions)
             .then(response => {
                 return response.json()
             })
             .then(json => {
                 if (typeof json == "object") {
-                    normaliser(json)
-                        .then(({ title, link, secondaryLinks }) => {
-                            this.postTitle = title
-                            this.postLink = link
-                            this.secondaryLinks = secondaryLinks || []
-
-                            this.render()
-                        })
-                        .catch(error => {
-                            console.error(error)
-                            this.destroy();
-                        });
+                    this.render(json);
                 } else {
                     console.error(`${this.url} Did not return an object`);
                 }
+
+                this.fetching = false;
+            })
+            .catch(error => {
+                console.error(error);
+                this.fetching = false;
+                this.rendered = false;
             });
     },
 
     /**
-     * Render the element.
+     * Render the response to the actual message
+     *
+     * @param {Object} result
      */
-    render() {
-        if (this.isDismissed()) return;
-        domReady().then(() => {
+    render: function (result) {
 
-            if (!this.postTitle) {
-                console.error('[h-bar] no post data, unable to render');
-                return;
-            }
+        normaliser(result)
+            .then((result) => {
+                let element = document.querySelector(this.$el);
 
-            let secondaryElement = null;
+                element.innerHTML = this.renderer.resolve(result)
+                element.__hbar__ = this;
 
-            if (!this.dismissible) {
-                let secondaryLinkList = this.createSecondaryLinks()
-                secondaryElement = newElement('div', {
-                    children: secondaryLinkList,
-                    classes: `${this.styling.linkWrapper} ${themes[this.theme].linkWrapper}`
-                })
-            } else {
-                secondaryElement = this.dismissibleButton();
-            }
+                this.rendered = true
 
-            let badge = newElement('span', { classes: `${this.styling.badge} ${themes[this.theme].badge}` })
-            let postLink = newElement('a', { classes: `${this.styling.postTitle} ${themes[this.theme].postTitle}` })
-
-            badge.innerText = this.badge;
-            postLink.href = this.postLink;
-            postLink.innerText = this.postTitle;
-
-            postLink.innerHTML += `
-            <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-            </svg>
-            `
-
-            let postElement = newElement('div', {
-                classes: `${this.styling.linkWrapper} ${themes[this.theme].linkWrapper}`,
-                children: [badge, postLink]
+                this.onCompleted({ __hbar__: this, result: element });
             })
-
-            let _hbar = newElement('div', {
-                classes: `${this.styling.wrapper} ${themes[this.theme].wrapper}`,
-                children: [postElement, secondaryElement]
-            })
-
-            let container = document.getElementById(this.ele);
-
-            container.innerHTML = ""
-            container.appendChild(_hbar)
-
-            // ? what to send out
-            this.onCompleted({ element: container, id: this.ele });
-        })
+            .catch(error => {
+                console.error(error)
+                this.destroy();
+                this.fetching = false;
+                this.rendered = false;
+                this.onFailure({__hbar__: this})
+            });
     },
 
     /**
@@ -117,88 +145,34 @@ const hBar = {
      *
      * Also used when dismissing.
      */
-    destroy() {
+    destroy: function () {
         try {
-            document.getElementById(this.ele).remove()
-
+            document.querySelector(this.$el).innerHTML = '';
             return true;
         } catch (error) {
             console.error('Unable to destroy the h-bar wrapper')
             console.error(error)
         }
-
         return false;
     },
-
-    /**
-     * Creates the HTML node for a dismissible button.
-     *
-     * @returns HTMLElement
-     */
-    dismissibleButton() {
-        let dismiss = newElement('button', {
-            classes: '-mr-1 flex p-1 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-gray-800',
-        });
-
-        dismiss.innerHTML = `<svg class="h-4 w-4 ${themes[this.theme].dismiss}" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>`
-
-        dismiss.onclick = (e) => {
-            e.preventDefault();
-
-            // just do it early if we not logging time.
-            if (!this.dismissFor) return this.destroy();
-
-            if (localStorage) {
-                localStorage.setItem('h-bar_dismiss_for', this.dismissFor.getTime());
-            }
-
-            return this.destroy();
-        }
-
-        return dismiss;
-    },
-
-    /**
-     * Determines if the banner has been dismissed.
-     *
-     * @returns boolean
-     */
-    isDismissed() {
-
-        if (localStorage) {
-            var dismissDate = localStorage.getItem('h-bar_dismiss_for');
-            if (!dismissDate) {
-                return false;
-            }
-
-            dismissDate = dismissDate;
-            var ourDate = (new Date()).getTime();
-
-            if (ourDate <= dismissDate) {
-                return true;
-            }
-        }
-
-        return false;
-    },
-
-    /**
-     * Creates the secondary links for the bar.
-     */
-    createSecondaryLinks() {
-        if (!this.secondaryLinks) return [];
-
-        return this.secondaryLinks.map(({ title, link }) => {
-            let style = `${this.styling.secondaryLink} ${themes[this.theme].secondaryLink}`;
-            let butter = newElement('a', { classes: style })
-            butter.href = link;
-            butter.innerText = title;
-
-            return butter;
-        }, this);
-    }
 }
 
-export default hBar
+Object.defineProperties(hBar, {
+    /**
+     * Config method should not be changed
+     */
+    'init': {
+        writable: false,
+        configurable: false,
+    },
+    'destroy': {
+        writable: false,
+        configurable: false,
+    },
+    'fetch': {
+        writable: false,
+        configurable: false,
+    }
+});
+
+export default hBar;

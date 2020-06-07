@@ -2,11 +2,9 @@
  * The default configuration for the package
  *
  * @var {object} config
+ * @var {object} config.fetchOptions
  */
 export const config = {
-    url: '',
-    theme: "gray",
-    secondaryLinks: [],
     fetchOptions: {
         method: 'GET',
         mode: 'cors', // no-cors, *cors, same-origin

@@ -1,0 +1,6 @@
+src
+docs
+postcss.config.js
+tailwind.config.js
+.editorconfig
+.github

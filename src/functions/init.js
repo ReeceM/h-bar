@@ -1,60 +1,60 @@
+import { themes } from '../banner/styling';
 import { config } from '../config/config'
 import { initNormalise } from "./normalise"
-import { styling } from "../config/styling"
 
 /**
+ * Set all the configuration options for the hBar library
  *
- * @param {object} param0
- * @param {string} param0.url
- * @param {string} param0.ele The element id
- * @param {boolean} param0.dismissible
- * @param {Date|boolean} param0.dismissFor
- * @param {string} param0.badge
- * @param {array} param0.secondaryLinks
- * @param {object} param0.options
- * @param {object} param0.customStyles
- * @param {function} param0.parser
- * @param {function} param0.onCompleted
- * @param {string} param0.link Manual override
- * @param {string} param0.title Manual Override
+ * @param {object} options
+ * @param {string} options.el The element id
+ * @param {string} options.template The template id
+ * @param {string} options.url
+ * @param {boolean} options.dismissible
+ * @param {Date|boolean} options.dismissFor
+ * @param {string} options.badge
+ * @param {array} options.secondaryLinks
+ * @param {object} options.headers
+ * @param {object} options.customStyles
+ * @param {function} options.parser
+ * @param {function} options.onCompleted
+ * @param {function} options.onFailure
+ * @param {string} options.link Manual override
+ * @param {string} options.title Manual Override
  */
-export function init({
-    url, /** The URL to fetch data from */
-    ele,
-    dismissible,
-    dismissFor,
-    badge,
-    secondaryLinks,
-    options,
-    customStyles,
-    onCompleted,
-    parser,
-    link, /** The link for the new post/article, manual override */
-    title, /** The title of the post/article, manual override */
-}) {
-    this.url = url;
+export function init(options = {}) {
+    let configuration = {};
 
-    this.ele = ele || 'h-bar';
+    configuration.$el = options.el;
 
-    // we will default to false for this
-    this.dismissible = dismissible || false;
+    configuration.url = options.url;
+    // if the user has dompurify installed. It can be optional
+    configuration.DOMPurify = options.DOMPurify || null;
 
-    this.dismissFor = dismissFor || false;
+    configuration.theme = themes[options.theme] || 'grey';
+    configuration.badge = options.badge || 'New';
 
-    this.config = Object.assign(config, options);
-    this.styling = Object.assign(styling, customStyles);
+    // we will default to false for configuration
+    configuration.dismissible = options.dismissible || false;
+    configuration.dismissFor = options.dismissFor || false;
 
-    this.secondaryLinks = secondaryLinks
+    configuration.secondaryLinks = options.secondaryLinks || [];
 
-    this.onCompleted = onCompleted || function () { };
+    /**
+     * These will be the fallbacks if something isn't found.
+     */
+    configuration.title = options.title || null;
+    configuration.link = options.link || null;
 
-    this.badge = badge || 'New';
-    this.postLink = link
-    this.postTitle = title
+    configuration.onCompleted = options.onCompleted || function () { };
+    configuration.onFailure = options.onFailure || function () { };
 
-    this.theme = this.config.theme
+    if (typeof options.fetch == 'function') {
+        configuration.fetch = options.fetch;
+    }
+    configuration.fetchOptions = config.fetchOptions;
+    configuration.fetchOptions.headers = Object.assign(config.fetchOptions.headers, options.headers)
 
-    initNormalise(parser)
+    initNormalise(options.parser || null)
 
-    return this
+    return configuration;
 }

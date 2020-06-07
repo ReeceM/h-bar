@@ -9,7 +9,7 @@ An Announcement Banner that is lightweight and customizable
 
 <h1 align="center">
 <br>
-  <img src="../h-bar.png" alt="h-bar announcements">
+  <img src="./h-bar.png" alt="h-bar announcements">
   <br>
     <br>
     h-bar Announcement banner

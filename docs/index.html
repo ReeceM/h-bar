@@ -27,6 +27,8 @@
     <meta property="twitter:title" content="An Announcement Banner that is lightweight and customizable">
     <meta property="twitter:description" content="Simple and lightweight (~5.6kB gzipped) | Customizable with personal templates | Multiple default themes ready to go">
     <meta property="twitter:image" content="https://reecem.github.io/h-bar/h-bar.png">
+
+    <link rel="stylesheet" href="./css/extra.css">
 </head>
 
 <body>
@@ -43,23 +45,22 @@
     <script src="https://cdn.jsdelivr.net/npm/@reecem/h-bar@next/dist/hBar.min.js"></script>
 
     <template id="hbar_template">
-        <!-- Piggy backs off the h-bar styles that are default -->
-        <div class="hb-flex hb-w-full hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between hb-bg-indigo-400 hb-text-indigo-900">
-            <div class="hb-flex hb-items-center">
-                <span class="hb-px-2 hb-mx-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs hb-bg-indigo-100 hb-text-indigo-900 shadow">
+        <div class="flex w-full flex-col md:flex-row text-sm py-2 md:px-20 px-1 items-center justify-between bg-indigo-400 text-indigo-900">
+            <div class="flex items-center mb-1 md:mb-0">
+                <span class="px-2 mx-2 leading-relaxed tracking-wider uppercase font-semibold rounded-full text-xs bg-indigo-100 text-indigo-900 shadow">
                     Release
                 </span>
-                <a class="hover:hb-underline hb-inline-flex hb-items-center hover:hb-text-indigo-100" href="{% link %}" target="_blank">
+                <a class="hover:underline inline-flex items-center hover:text-indigo-100" href="{% link %}" target="_blank">
                     {% title %}
-                    <svg class="hb-h-3 hb-w-3" viewBox="0 0 20 20" fill="currentColor">
+                    <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd"
                             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                             clip-rule="evenodd"></path>
                     </svg>
                 </a>
             </div>
-            <div class="hb-flex hb-items-center">
-                <a class="hb-mx-5 hb-cursor-pointer hover:hb-underline hover:hb-text-indigo-100" href="https://twitter.com/iexistin3d">@iexistin3d</a>
+            <div class="flex items-center">
+                <a class="mx-5 cursor-pointer hover:underline hover:text-indigo-100" href="https://twitter.com/iexistin3d">@iexistin3d</a>
             </div>
         </div>
     </template>

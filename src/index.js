@@ -64,7 +64,7 @@ const hBar = {
             this.renderer = new Renderer(this.$elementOpt.template, this.DOMPurify);
         } else if (options.renderer) {
             /**
-             * TODO: this was added on a whim... bad idea possibly
+             * @todo this was added on a whim... bad idea possibly
              */
             this.renderer = new options.renderer(this);
         } else {
@@ -124,6 +124,7 @@ const hBar = {
                 let element = document.querySelector(this.$el);
 
                 element.innerHTML = this.renderer.resolve(result)
+                element.__hbar__ = this;
 
                 this.rendered = true
 
@@ -168,6 +169,10 @@ Object.defineProperties(hBar, {
         writable: false,
         configurable: false,
     },
+    'fetch': {
+        writable: false,
+        configurable: false,
+    }
 });
 
 export default hBar;

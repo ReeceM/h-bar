@@ -11,7 +11,7 @@ import { init } from './functions/init';
 import { normaliser } from "./functions/normalise"
 import { getElementOptions, isDismissed } from "./utils";
 import Renderer from './functions/renderer';
-import Banner from './functions/banner';
+import Banner from './banner/banner';
 
 /**
  * Set all the configuration options for the hBar library

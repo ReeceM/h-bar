@@ -1,4 +1,4 @@
-import { themes } from '../config/styling';
+import { themes } from '../banner/styling';
 import { config } from '../config/config'
 import { initNormalise } from "./normalise"
 

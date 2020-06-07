@@ -32,7 +32,7 @@ export default class Renderer {
             })
 
         if (this.DOMPurify) {
-            return this.DOMPurify.sanitize(dirty);
+            return this.DOMPurify.sanitize(templateHTML);
         }
 
         return templateHTML;

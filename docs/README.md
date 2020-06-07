@@ -5,6 +5,7 @@ An Announcement Banner that is lightweight and customizable
 [![Latest Version on npm](https://img.shields.io/npm/v/@reecem/h-bar.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/h-bar)
 [![Total Downloads](https://img.shields.io/npm/dt/@reecem/h-bar.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/h-bar)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@reecem/h-bar)
+[![](https://data.jsdelivr.com/v1/package/npm/@reecem/h-bar/badge)](https://www.jsdelivr.com/package/npm/@reecem/h-bar)
 
 <h1 align="center">
 <br>

@@ -39,35 +39,48 @@
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-    <script src"https://cdn.jsdelivr.net/npm/@reecem/h-bar@latest/dist/hBar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.0.11/dist/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@reecem/h-bar@2.0.0/dist/hBar.min.js"></script>
 
     <template id="hbar_template">
         <!-- Piggy backs off the h-bar styles that are default -->
-        <div
-            class="hb-flex hb-w-full hd-flex-col md:hb-flex-row sm:hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between hb-bg-indigo-400 hb-text-indigo-900">
-            <div class="hb-flex hb-items-center"><span
-                    class="hb-px-2 hb-mx-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs hb-bg-indigo-100 hb-text-indigo-900 shadow">New
-                    Release</span><a class="hover:hb-underline hb-inline-flex hb-items-center hover:hb-text-indigo-100"
-                    href="{% link %}" target="_blank">{% title %}
+        <div class="hb-flex hb-w-full hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between hb-bg-indigo-400 hb-text-indigo-900">
+            <div class="hb-flex hb-items-center">
+                <span class="hb-px-2 hb-mx-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs hb-bg-indigo-100 hb-text-indigo-900 shadow">
+                    Release
+                </span>
+                <a class="hover:hb-underline hb-inline-flex hb-items-center hover:hb-text-indigo-100" href="{% link %}" target="_blank">
+                    {% title %}
                     <svg class="hb-h-3 hb-w-3" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd"
                             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                             clip-rule="evenodd"></path>
                     </svg>
-                </a></div>
-            <div class="hb-flex hb-items-center"></div>
-        </div>
-        <!-- <div class="absolute top-auto right-0 w-full flex justify-center mt-5">
-        <div class="max-w-lg">
-            <div class="bg-orange-100 border-l-4 border-orange-900 text-orange-700 p-4" role="alert">
-                <p class="font-bold">{% title %}</p>
-                <p>
-                    <a href="{% link %}" class="hover:underline text-gray-700">Go to the GitHub Release</a>
-                </p>
+                </a>
+            </div>
+            <div class="hb-flex hb-items-center">
+                <a class="hb-mx-5 hb-cursor-pointer hover:hb-underline hover:hb-text-indigo-100" href="https://twitter.com/iexistin3d">@iexistin3d</a>
             </div>
         </div>
-    </div> -->
     </template>
+    <script>
+        hBar.init({
+            el: "#h-bar",
+            DOMPurify: DOMPurify,
+            url: "https://api.github.com/repos/ReeceM/h-bar/releases",
+            onCompleted: (e) => {
+                console.log(e)
+            },
+            parser: (data) => {
+                const {name, html_url} = data[0];
+                return {
+                    title: `Latest version available ${name}`,
+                    link: html_url + '?ref=hbar_docs'
+                };
+            },
+        })
+        hBar.fetch()
+    </script>
 </body>
 
 </html>

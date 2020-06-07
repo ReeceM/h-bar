@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <div id="h-bar"></div>
+    <div id="h-bar" style="position: -webkit-sticky; position: sticky; top: 0;" data-template="#hbar_template"></div>
     <!-- HTML BELOW USED FROM: https://tailwindcomponents.com/component/simple-template -->
     <div class="text-white mt-0 border border-blue-800 py-0 w-full h-full" style="background-image:url('https://demos.onepagelove.com/html/leno/images/header-background.jpg')">
         <header class="flex md:justify-between p-8">
@@ -65,7 +65,39 @@
             </div>
         </section>
     </div>
-    <script src="../dist/hBar.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@reecem/h-bar@latest/dist/hBar.min.js"></script> -->
+    <script src="./scripts/hBar.min.js"></script>
+
+    <template id="hbar_template">
+        <div
+            class="hb-flex hb-w-full hb-flex-col md:hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between hb-bg-indigo-400 hb-text-indigo-900">
+            <div class="hb-flex hb-items-center"><span
+                    class="hb-px-2 hb-mx-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs hb-bg-indigo-100 hb-text-indigo-900 shadow">New Release</span><a
+                    class="hover:hb-underline hb-inline-flex hb-items-center hover:hb-text-indigo-100"
+                    href="{% link %}" target="_blank">{% title %}
+                    <svg class="hb-h-3 hb-w-3" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a></div>
+            <div class="hb-flex hb-items-center">
+                <a class="hb-mx-5 hb-cursor-pointer hover:hb-underline hover:hb-text-red-100" href="http://docs.localhost.com">Info</a>
+                <a class="hb-mx-5 hb-cursor-pointer hover:hb-underline hover:hb-text-red-100" href="http://docs.localhost.com">Info</a>
+            </div>
+        </div>
+        <!-- <div class="absolute top-auto right-0 w-full flex justify-center mt-5">
+            <div class="max-w-lg">
+                <div class="bg-orange-100 border-l-4 border-orange-900 text-orange-700 p-4" role="alert">
+                    <p class="font-bold">{% title %}</p>
+                    <p>
+                        <a href="{% link %}" class="hover:underline text-gray-700">Go to the GitHub Release</a>
+                    </p>
+                </div>
+            </div>
+        </div> -->
+    </template>
+
     <script>
         /**
          * Below we are using the h-bar with the preset values and not from a blog.
@@ -90,7 +122,7 @@
         let github_release = (data) => {
             const {name, html_url} = data[0];
             return {
-                title: `Lateset version available ${name}`,
+                title: `Latest version available ${name}`,
                 link: html_url
             };
         }
@@ -99,17 +131,15 @@
         /**
          *  Add two(2) minutes to the delay to see it work :)
          */
-        var dismissMillis = (new Date()).setMinutes(dateToday.getMinutes() + 2);
+        // var dismissMillis = (new Date()).setMinutes(dateToday.getMinutes() + 2);
 
         hBar.init({
+            el: "#h-bar",
             url: post_like_url,
             onCompleted: (e) => {
                 console.log(e)
             },
-            theme: 'lightGray',
-            headers: {
-                "Authorization": "Bearer 12345",
-            },
+            theme: 'red',
             // dismissible: true,
             // dismissFor: new Date(dismissMillis),
             /**
@@ -128,7 +158,7 @@
             }
             ]
         })
-        hBar.fetchData()
+        hBar.fetch()
     </script>
 </body>
 </html>

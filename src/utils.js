@@ -1,4 +1,4 @@
-// Thanks @stimulus:
+// Thanks @stimulus: and I got it from @alpinejs
 // https://github.com/stimulusjs/stimulus/blob/master/packages/%40stimulus/core/src/application.ts
 export function domReady() {
     return new Promise(resolve => {
@@ -47,14 +47,13 @@ export function addClasses(element, classes = '') {
     return element
 }
 
-
 /**
  * Binds all the methods on a JS Class to the `this` context of the class.
  * Adapted from https://github.com/sindresorhus/auto-bind
  * @param {object} self The `this` context of the class
  * @return {object} The `this` context of the class
  */
-export default function autoBind(self) {
+export function autoBind(self) {
     const keys = Object.getOwnPropertyNames(self.constructor.prototype);
     for (let i = 0; i < keys.length; i++) {
         const key = keys[i];
@@ -65,4 +64,42 @@ export default function autoBind(self) {
     }
 
     return self;
+}
+
+/**
+ * Gets the data-* values that area related to the config of the template options.
+ *
+ * @param {HTMLElement} element
+ * @return {Object}
+ */
+export function getElementOptions(element) {
+    return {
+        template: element.dataset.template,
+        html: element.getAttribute('has-html') == "" ? true : false,
+        dismissFor: element.dataset.dismissFor || null,
+    };
+}
+
+/**
+ * Determines if the banner has been dismissed.
+ *
+ * @returns boolean
+ */
+export function isDismissed() {
+
+    if (localStorage) {
+        var dismissDate = localStorage.getItem('h-bar_dismiss_for');
+        if (!dismissDate) {
+            return false;
+        }
+
+        dismissDate = dismissDate;
+        var ourDate = (new Date()).getTime();
+
+        if (ourDate <= dismissDate) {
+            return true;
+        }
+    }
+
+    return false;
 }

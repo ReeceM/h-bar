@@ -1,12 +1,14 @@
+import { themes } from '../banner/styling';
 import { config } from '../config/config'
 import { initNormalise } from "./normalise"
-import { styling } from "../config/styling"
 
 /**
+ * Set all the configuration options for the hBar library
  *
  * @param {object} options
+ * @param {string} options.el The element id
+ * @param {string} options.template The template id
  * @param {string} options.url
- * @param {string} options.ele The element id
  * @param {boolean} options.dismissible
  * @param {Date|boolean} options.dismissFor
  * @param {string} options.badge
@@ -15,34 +17,44 @@ import { styling } from "../config/styling"
  * @param {object} options.customStyles
  * @param {function} options.parser
  * @param {function} options.onCompleted
+ * @param {function} options.onFailure
  * @param {string} options.link Manual override
  * @param {string} options.title Manual Override
  */
 export function init(options = {}) {
-    this.url = options.url;
+    let configuration = {};
 
-    this.ele = options.ele || 'h-bar';
+    configuration.$el = options.el;
 
-    // we will default to false for this
-    this.dismissible = options.dismissible || false;
+    configuration.url = options.url;
+    // if the user has dompurify installed. It can be optional
+    configuration.DOMPurify = options.DOMPurify || null;
 
-    this.dismissFor = options.dismissFor || false;
+    configuration.theme = themes[options.theme] || 'grey';
+    configuration.badge = options.badge || 'New';
 
-    this.config = config;
-    this.config.fetchOptions.headers = Object.assign(config.fetchOptions.headers, options.headers)
-    this.styling = Object.assign(styling, options.customStyles);
+    // we will default to false for configuration
+    configuration.dismissible = options.dismissible || false;
+    configuration.dismissFor = options.dismissFor || false;
 
-    this.secondaryLinks = options.secondaryLinks
+    configuration.secondaryLinks = options.secondaryLinks || [];
 
-    this.onCompleted = options.onCompleted || function () { };
+    /**
+     * These will be the fallbacks if something isn't found.
+     */
+    configuration.title = options.title || null;
+    configuration.link = options.link || null;
 
-    this.badge = options.badge || 'New';
-    this.postLink = options.link
-    this.postTitle = options.title
+    configuration.onCompleted = options.onCompleted || function () { };
+    configuration.onFailure = options.onFailure || function () { };
 
-    this.theme = options.theme
+    if (typeof options.fetch == 'function') {
+        configuration.fetch = options.fetch;
+    }
+    configuration.fetchOptions = config.fetchOptions;
+    configuration.fetchOptions.headers = Object.assign(config.fetchOptions.headers, options.headers)
 
-    initNormalise(options.parser)
+    initNormalise(options.parser || null)
 
-    return this
+    return configuration;
 }

@@ -1,14 +1,15 @@
 # h-bar lightweight announcement bar
 
-An Announcement Banner that is lightweight and based on tailwindcss for the styling
+An Announcement Banner that is lightweight and customizable
 
 [![Latest Version on npm](https://img.shields.io/npm/v/@reecem/h-bar.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/h-bar)
 [![Total Downloads](https://img.shields.io/npm/dt/@reecem/h-bar.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/h-bar)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@reecem/h-bar)
+[![](https://data.jsdelivr.com/v1/package/npm/@reecem/h-bar/badge)](https://www.jsdelivr.com/package/npm/@reecem/h-bar)
 
 <h1 align="center">
 <br>
-  <img src="https://raw.githubusercontent.com/ReeceM/h-bar/master/docs/h-bar.png" alt="h-bar announcements">
+  <img src="../h-bar.png" alt="h-bar announcements">
   <br>
     <br>
     h-bar Announcement banner
@@ -52,6 +53,10 @@ Or use jsDelivr:
 ```
 
 > If you are customising the styling and overriding it with your own styling then you will also need an instance of your css or a tailwindcss file installed as only the classes needed are packaged with h-bar
+
+## Example page
+
+You can view an [example page](https://reecem.github.io/h-bar/example.html)
 
 ## Usage
 
@@ -196,15 +201,17 @@ _to come_ please make a PR if you know how to do it on JS.
 
 ## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see [CHANGELOG](https://github.com/ReeceM/h-bar/blob/master/CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/ReeceM/h-bar/blob/master/CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email zsh.rce@gmail.com instead of using the issue tracker. You can also use the [SECURITY](SECURITY.md) doc.
+[SECURITY](https://github.com/ReeceM/h-bar/security/policy)
+
+If you discover any security related issues, please email zsh.rce@gmail.com instead of using the issue tracker.
 
 ## Credits
 
@@ -219,4 +226,4 @@ If you discover any security related issues, please email zsh.rce@gmail.com inst
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/ReeceM/h-bar/blob/master/LICENSE.md) for more information.

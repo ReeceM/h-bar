@@ -1,0 +1,86 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+
+    <!-- Primary Meta Tags -->
+    <title>An Announcement Banner that is lightweight and customizable</title>
+    <meta name="title" content="An Announcement Banner that is lightweight and customizable">
+    <meta name="description" content="Simple and lightweight (~5.6kB gzipped) | Customizable with personal templates | Multiple default themes ready to go">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://reecem.github.io/h-bar">
+    <meta property="og:title" content="An Announcement Banner that is lightweight and customizable">
+    <meta property="og:description" content="Simple and lightweight (~5.6kB gzipped) | Customizable with personal templates | Multiple default themes ready to go">
+    <meta property="og:image" content="https://reecem.github.io/h-bar/h-bar.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://reecem.github.io/h-bar">
+    <meta property="twitter:title" content="An Announcement Banner that is lightweight and customizable">
+    <meta property="twitter:description" content="Simple and lightweight (~5.6kB gzipped) | Customizable with personal templates | Multiple default themes ready to go">
+    <meta property="twitter:image" content="https://reecem.github.io/h-bar/h-bar.png">
+</head>
+
+<body>
+    <div id="h-bar" style="position: -webkit-sticky; position: sticky; top: 0;" data-template="#hbar_template"></div>
+    <div id="app"></div>
+    <script>
+        window.$docsify = {
+            coverpage: true
+        }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.0.11/dist/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@reecem/h-bar@next/dist/hBar.min.js"></script>
+
+    <template id="hbar_template">
+        <!-- Piggy backs off the h-bar styles that are default -->
+        <div class="hb-flex hb-w-full hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between hb-bg-indigo-400 hb-text-indigo-900">
+            <div class="hb-flex hb-items-center">
+                <span class="hb-px-2 hb-mx-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs hb-bg-indigo-100 hb-text-indigo-900 shadow">
+                    Release
+                </span>
+                <a class="hover:hb-underline hb-inline-flex hb-items-center hover:hb-text-indigo-100" href="{% link %}" target="_blank">
+                    {% title %}
+                    <svg class="hb-h-3 hb-w-3" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="hb-flex hb-items-center">
+                <a class="hb-mx-5 hb-cursor-pointer hover:hb-underline hover:hb-text-indigo-100" href="https://twitter.com/iexistin3d">@iexistin3d</a>
+            </div>
+        </div>
+    </template>
+    <script>
+        hBar.init({
+            el: "#h-bar",
+            DOMPurify: DOMPurify,
+            url: "https://api.github.com/repos/ReeceM/h-bar/releases",
+            onCompleted: (e) => {
+                console.log(e)
+            },
+            parser: (data) => {
+                const {name, html_url} = data[0];
+                return {
+                    title: `Latest version available ${name}`,
+                    link: html_url + '?ref=hbar_docs'
+                };
+            },
+        })
+        hBar.fetch()
+    </script>
+</body>
+
+</html>

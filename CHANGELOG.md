@@ -1,8 +1,15 @@
 # Changelog
 
 All notable changes to `h-bar` will be documented in this file.
+## [Unreleased]
+### Added
+- Templating for custom styles.
+- Move the original default banner to separate class
 
-# 1.1.0 - 2020-05-15
+### Changed
+- Initializing the class has changed in the values passed
+
+# [1.1.0] - 2020-05-15
 
 ***Changes***
 
@@ -14,13 +21,13 @@ __FIX__
 
 - the fetch options config cleared all defaults
 
-# 1.0.1 - 2020-04-09
+# [1.0.1] - 2020-04-09
 
 __FIX__
 
 The styling broke in firefox as sizing was missing the prefix.
 
-# 1.0.0 - 2020-03-13
+# [1.0.0] - 2020-03-13
 
 First initial major version of h-bar :)
 
@@ -28,7 +35,7 @@ This has kinda the base features for the first version.
 
 See previous versions for the features to this point.
 
-# 0.3.0 - 2020-03-13
+# [0.3.0] - 2020-03-13
 
 ***FEATURE***
 - [110bab7] Add `dismissible` to the init function.
@@ -42,7 +49,7 @@ See previous versions for the features to this point.
 - [a89fcc0] Adds more themes for the styling
 - [dc588ce] Gives the link an svg chevron for pretty
 
-## 0.2.0 - 2020-02-23
+## [0.2.0] - 2020-02-23
 
 This has a fix for the fact I mixed up the values compared in the wordpress passer.
 
@@ -54,7 +61,7 @@ This has a fix for the fact I mixed up the values compared in the wordpress pass
 
 - [02d0b38] Add the option to define/override the default container element id that is used.
 
-## 0.1.0 - 2020-02-18
+## [0.1.0] - 2020-02-18
 
 ***Features***
 
@@ -69,3 +76,11 @@ Also update the readme.
 ## 0.0.x - initial releases
 
 Before this the documented changes are vague cause it was the initial flesh of the package.
+
+[Unreleased]: https://github.com/reecem/h-bar/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/reecem/h-bar/tags/v1.1.0
+[1.0.1]: https://github.com/reecem/h-bar/tags/v1.0.1
+[0.3.0]: https://github.com/reecem/h-bar/tags/v0.3.0
+[0.2.1]: https://github.com/reecem/h-bar/tags/v0.2.1
+[0.2.0]: https://github.com/reecem/h-bar/tags/v0.2.0
+[0.1.0]: https://github.com/reecem/h-bar/tags/v0.1.0

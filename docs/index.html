@@ -28,21 +28,34 @@
     <meta property="twitter:description" content="Simple and lightweight (~5.6kB gzipped) | Customizable with personal templates | Multiple default themes ready to go">
     <meta property="twitter:image" content="https://reecem.github.io/h-bar/h-bar.png">
 
-    <link rel="stylesheet" href="./css/extra.css">
+    <link rel="stylesheet" href="./css/extra.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-changelog-plugin@latest/dist/style.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 </head>
 
 <body>
     <div id="h-bar" style="position: -webkit-sticky; position: sticky; top: 0;" data-template="#hbar_template"></div>
+    <nav></nav>
     <div id="app"></div>
     <script>
         window.$docsify = {
-            coverpage: true
+            name: 'h-bar',
+			repo: 'ReeceM/h-bar',
+			copyCode: {
+				buttonText : 'Copy to clipboard',
+				errorText  : 'Error',
+				successText: 'Copied'
+			},
+            coverpage: true,
+            loadNavbar : false,
+            changelog : 'https://raw.githubusercontent.com/ReeceM/h-bar/master/CHANGELOG.md'
         }
-
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.0.11/dist/purify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@reecem/h-bar@next/dist/hBar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-changelog-plugin@latest/dist/index.js"></script>
+	<script src="//unpkg.com/docsify-copy-code@2"></script>
+    <script src="//cdn.jsdelivr.net/npm/dompurify@2.0.11/dist/purify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/@reecem/h-bar@next/dist/hBar.min.js"></script>
 
     <template id="hbar_template">
         <div class="flex w-full flex-col md:flex-row text-sm py-2 md:px-20 px-1 items-center justify-between bg-indigo-400 text-indigo-900">

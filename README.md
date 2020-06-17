@@ -2,8 +2,8 @@
 
 An Announcement Banner that is lightweight and based on tailwindcss for the styling
 
-[![Latest Version on npm](https://img.shields.io/npm/v/@reecem/h-bar.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/h-bar)
-[![Total Downloads](https://img.shields.io/npm/dt/@reecem/h-bar.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/h-bar)
+[![npm version](https://badge.fury.io/js/%40reecem%2Fh-bar.svg)](https://www.npmjs.com/package/@reecem/h-bar)
+[![Total Downloads](https://img.shields.io/npm/dt/@reecem/h-bar.svg )](https://www.npmjs.com/package/@reecem/h-bar)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@reecem/h-bar)
 
 <h1 align="center">
@@ -47,7 +47,7 @@ npm i @reecem/h-bar
 Or use jsDelivr:
 ```html
     ...
-    <script src"https://cdn.jsdelivr.net/npm/@reecem/h-bar@latest/dist/hBar.min.js"></script>
+    <script src="https://unpkg.com/@reecem/h-bar?umd"></script>
     ...
 ```
 
@@ -60,7 +60,7 @@ You can import it directly into your javascript app or use it in the html.
 ```html
 <script src="../hBar.js"></script>
 <!-- or -->
-<script src"https://cdn.jsdelivr.net/npm/@reecem/h-bar@latest/dist/hBar.min.js" defer></script>
+<script src="https://unpkg.com/@reecem/h-bar?umd" defer></script>
 <script>
     hBar.init({
         url: "http://blog.example.com/wp-json/wp/v2/posts?per_page=1&_fields=id,excerpt,title,link",

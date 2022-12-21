@@ -7,12 +7,15 @@ export default class Banner {
      *
      * @param {object} param0
      */
-    constructor({ $el, dismissible, dismissFor, theme, badge }) {
+    constructor({ $el, dismissible, dismissFor, theme, badge, customStyles = null }) {
         this.$el = $el
         this.dismissible = dismissible
         this.dismissFor = dismissFor
         this.badge = badge
         this.theme = theme
+
+        // use the top level styling preferences
+        this.styling = customStyles != null ? customStyles : styling
     }
 
     /**
@@ -34,7 +37,7 @@ export default class Banner {
                 let secondaryLinkList = this.createSecondaryLinks(secondaryLinks)
                 secondaryElement = newElement('div', {
                     children: secondaryLinkList,
-                    classes: `${styling.linkWrapper} ${this.theme.linkWrapper}`
+                    classes: `${this.styling.linkWrapper} ${this.theme.linkWrapper}`
                 })
             } else {
                 secondaryElement = this.dismissibleButton()
@@ -42,10 +45,10 @@ export default class Banner {
 
             let badgeElement = null
             if (this.badge) {
-                badgeElement = newElement('span', { classes: `${styling.badge} ${this.theme.badge}` })
+                badgeElement = newElement('span', { classes: `${this.styling.badge} ${this.theme.badge}` })
                 badgeElement.innerText = this.badge
             }
-            let postLink = newElement('a', { classes: `${styling.postTitle} ${this.theme.postTitle}` })
+            let postLink = newElement('a', { classes: `${this.styling.postTitle} ${this.theme.postTitle}` })
 
             postLink.href = link
             postLink.innerText = title
@@ -61,12 +64,12 @@ export default class Banner {
             }
 
             let postElement = newElement('div', {
-                classes: `${styling.linkWrapper} ${this.theme.linkWrapper}`,
+                classes: `${this.styling.linkWrapper} ${this.theme.linkWrapper}`,
                 children: postChildren
             })
 
             let _hbar = newElement('div', {
-                classes: `${styling.wrapper} ${this.theme.wrapper}`,
+                classes: `${this.styling.wrapper} ${this.theme.wrapper}`,
                 children: [postElement, secondaryElement]
             })
 
@@ -131,7 +134,7 @@ export default class Banner {
         if (!secondaryLinks) return []
 
         return secondaryLinks.map(({ title, link }) => {
-            let style = `${styling.secondaryLink} ${this.theme.secondaryLink}`
+            let style = `${this.styling.secondaryLink} ${this.theme.secondaryLink}`
             let butter = newElement('a', { classes: style })
             butter.href = link
             butter.innerText = title

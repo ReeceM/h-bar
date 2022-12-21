@@ -2,12 +2,15 @@
 
 All notable changes to `h-bar` will be documented in this file.
 ## [Unreleased]
+
+## [2.0.1] - 2022-12-21
 ### Added
 - Templating for custom styles.
 - Move the original default banner to separate class
 
 ### Changed
 - Initializing the class has changed in the values passed
+- Changed to make banner optional #31 @mariusa
 
 # [1.1.0] - 2020-05-15
 
@@ -77,7 +80,8 @@ Also update the readme.
 
 Before this the documented changes are vague cause it was the initial flesh of the package.
 
-[Unreleased]: https://github.com/reecem/h-bar/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/reecem/h-bar/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/reecem/h-bar/compare/v1.0.1...v2.0.1
 [1.1.0]: https://github.com/reecem/h-bar/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/reecem/h-bar/compare/v0.3.0...v1.0.1
 [0.3.0]: https://github.com/reecem/h-bar/compare/v0.2.1...v0.3.0

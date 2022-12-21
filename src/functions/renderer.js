@@ -8,7 +8,7 @@ export default class Renderer {
      */
     constructor(el, DOMPurify) {
         this.template = document.querySelector(el)
-        this.DOMPurify = DOMPurify;
+        this.DOMPurify = DOMPurify
     }
 
     resolve(data) {
@@ -18,7 +18,7 @@ export default class Renderer {
          * Don't do anything if there is a no content
          */
         if (templateHTML == undefined) {
-            return null;
+            return null
         }
 
         Object.keys(data)
@@ -27,15 +27,15 @@ export default class Renderer {
                 // make the thing recursive in x version xD
                 if (!Array.isArray(data[key])) {
                     var regex = this.regex(key)
-                    templateHTML = templateHTML.replace(regex, data[key]);
+                    templateHTML = templateHTML.replace(regex, data[key])
                 }
             })
 
         if (this.DOMPurify) {
-            return this.DOMPurify.sanitize(templateHTML);
+            return this.DOMPurify.sanitize(templateHTML)
         }
 
-        return templateHTML;
+        return templateHTML
     }
 
     /**
@@ -46,6 +46,6 @@ export default class Renderer {
      */
     regex(key) {
         // current tag is {% value %}
-        return new RegExp(`({%\\s*(${key})\\s*%})`, 'g');
+        return new RegExp(`({%\\s*(${key})\\s*%})`, 'g')
     }
 }

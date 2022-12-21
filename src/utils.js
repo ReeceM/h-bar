@@ -21,9 +21,9 @@ export function domReady() {
  */
 export function newElement(element, { children, classes }) {
     const parent = document.createElement(element)
-    const documentFragment = document.createDocumentFragment();
+    const documentFragment = document.createDocumentFragment()
 
-    addClasses(parent, classes || '');
+    addClasses(parent, classes || '')
 
     if (children) /*run*/ {
         children.forEach(child => {
@@ -31,18 +31,18 @@ export function newElement(element, { children, classes }) {
 
                 child.forEach(child => documentFragment.appendChild(child))
             } else {
-                documentFragment.appendChild(child);
+                documentFragment.appendChild(child)
             }
-        });
+        })
     }
 
-    parent.appendChild(documentFragment);
-    return parent;
+    parent.appendChild(documentFragment)
+    return parent
 }
 
 export function addClasses(element, classes = '') {
     const splitClasses = classes.trim().split(' ')
-    element.classList.add(...splitClasses);
+    element.classList.add(...splitClasses)
 
     return element
 }
@@ -54,16 +54,16 @@ export function addClasses(element, classes = '') {
  * @return {object} The `this` context of the class
  */
 export function autoBind(self) {
-    const keys = Object.getOwnPropertyNames(self.constructor.prototype);
+    const keys = Object.getOwnPropertyNames(self.constructor.prototype)
     for (let i = 0; i < keys.length; i++) {
-        const key = keys[i];
-        const val = self[key];
+        const key = keys[i]
+        const val = self[key]
         if (key !== 'constructor' && typeof val === 'function') {
-            self[key] = val.bind(self);
+            self[key] = val.bind(self)
         }
     }
 
-    return self;
+    return self
 }
 
 /**
@@ -77,7 +77,7 @@ export function getElementOptions(element) {
         template: element.dataset.template,
         html: element.getAttribute('has-html') == "" ? true : false,
         dismissFor: element.dataset.dismissFor || null,
-    };
+    }
 }
 
 /**
@@ -90,18 +90,18 @@ export function getElementOptions(element) {
 export function isDismissed() {
 
     if (localStorage) {
-        var dismissDate = localStorage.getItem('h-bar_dismiss_for');
+        var dismissDate = localStorage.getItem('h-bar_dismiss_for')
         if (!dismissDate) {
-            return false;
+            return false
         }
 
-        dismissDate = dismissDate;
-        var ourDate = (new Date()).getTime();
+        dismissDate = dismissDate
+        var ourDate = (new Date()).getTime()
 
         if (ourDate <= dismissDate) {
-            return true;
+            return true
         }
     }
 
-    return false;
+    return false
 }

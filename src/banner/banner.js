@@ -37,7 +37,7 @@ export default class Banner {
                 let secondaryLinkList = this.createSecondaryLinks(secondaryLinks)
                 secondaryElement = newElement('div', {
                     children: secondaryLinkList,
-                    classes: `${this.styling.linkWrapper} ${this.theme.linkWrapper}`
+                    classes: `${this.theme.linkWrapper} ${this.styling.linkWrapper} `
                 })
             } else {
                 secondaryElement = this.dismissibleButton()
@@ -45,10 +45,10 @@ export default class Banner {
 
             let badgeElement = null
             if (this.badge) {
-                badgeElement = newElement('span', { classes: `${this.styling.badge} ${this.theme.badge}` })
+                badgeElement = newElement('span', { classes: `${this.theme.badge} ${this.styling.badge}` })
                 badgeElement.innerText = this.badge
             }
-            let postLink = newElement('a', { classes: `${this.styling.postTitle} ${this.theme.postTitle}` })
+            let postLink = newElement('a', { classes: `${this.theme.postTitle} ${this.styling.postTitle}` })
 
             postLink.href = link
             postLink.innerText = title
@@ -64,12 +64,12 @@ export default class Banner {
             }
 
             let postElement = newElement('div', {
-                classes: `${this.styling.linkWrapper} ${this.theme.linkWrapper}`,
+                classes: `${this.theme.linkWrapper} ${this.styling.linkWrapper} `,
                 children: postChildren
             })
 
             let _hbar = newElement('div', {
-                classes: `${this.styling.wrapper} ${this.theme.wrapper}`,
+                classes: `${this.theme.wrapper} ${this.styling.wrapper} `,
                 children: [postElement, secondaryElement]
             })
 
@@ -134,7 +134,7 @@ export default class Banner {
         if (!secondaryLinks) return []
 
         return secondaryLinks.map(({ title, link }) => {
-            let style = `${this.styling.secondaryLink} ${this.theme.secondaryLink}`
+            let style = `${this.theme.secondaryLink} ${this.styling.secondaryLink} `
             let butter = newElement('a', { classes: style })
             butter.href = link
             butter.innerText = title

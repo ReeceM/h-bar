@@ -6,5 +6,4 @@ build
 npm-debug.log
 
 # misc
-.vscode
 .DS_Store

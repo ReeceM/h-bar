@@ -1,4 +1,4 @@
-import { themes } from '../banner/styling';
+import { themes } from '../banner/styling'
 import { config } from '../config/config'
 import { initNormalise } from "./normalise"
 
@@ -22,39 +22,39 @@ import { initNormalise } from "./normalise"
  * @param {string} options.title Manual Override
  */
 export function init(options = {}) {
-    let configuration = {};
+    let configuration = {}
 
-    configuration.$el = options.el;
+    configuration.$el = options.el
 
-    configuration.url = options.url;
+    configuration.url = options.url
     // if the user has dompurify installed. It can be optional
-    configuration.DOMPurify = options.DOMPurify || null;
+    configuration.DOMPurify = options.DOMPurify || null
 
-    configuration.theme = themes[options.theme] || 'grey';
-    configuration.badge = options.badge || null;
+    configuration.theme = themes[options.theme] || 'grey'
+    configuration.badge = options.badge || null
 
     // we will default to false for configuration
-    configuration.dismissible = options.dismissible || false;
-    configuration.dismissFor = options.dismissFor || false;
+    configuration.dismissible = options.dismissible || false
+    configuration.dismissFor = options.dismissFor || false
 
-    configuration.secondaryLinks = options.secondaryLinks || [];
+    configuration.secondaryLinks = options.secondaryLinks || []
 
     /**
      * These will be the fallbacks if something isn't found.
      */
-    configuration.title = options.title || null;
-    configuration.link = options.link || null;
+    configuration.title = options.title || null
+    configuration.link = options.link || null
 
-    configuration.onCompleted = options.onCompleted || function () { };
-    configuration.onFailure = options.onFailure || function () { };
+    configuration.onCompleted = options.onCompleted || function () { }
+    configuration.onFailure = options.onFailure || function () { }
 
     if (typeof options.fetch == 'function') {
-        configuration.fetch = options.fetch;
+        configuration.fetch = options.fetch
     }
-    configuration.fetchOptions = config.fetchOptions;
+    configuration.fetchOptions = config.fetchOptions
     configuration.fetchOptions.headers = Object.assign(config.fetchOptions.headers, options.headers)
 
     initNormalise(options.parser || null)
 
-    return configuration;
+    return configuration
 }

@@ -31,7 +31,7 @@ export function init(options = {}) {
     configuration.DOMPurify = options.DOMPurify || null;
 
     configuration.theme = themes[options.theme] || 'grey';
-    configuration.badge = options.badge || 'New';
+    configuration.badge = options.badge || null;
 
     // we will default to false for configuration
     configuration.dismissible = options.dismissible || false;

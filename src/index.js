@@ -1,7 +1,7 @@
 /**
  * h-bar banner and dynamic announcement library
  *
- * @version 2.0.0
+ * @version 2.0.2
  * @license MIT
  * @copyright @ReeceM
  */

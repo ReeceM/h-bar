@@ -1,4 +1,4 @@
-import { themes } from '../banner/styling'
+import { styling, themes } from '../banner/styling';
 import { config } from '../config/config'
 import { initNormalise } from "./normalise"
 
@@ -30,8 +30,14 @@ export function init(options = {}) {
     // if the user has dompurify installed. It can be optional
     configuration.DOMPurify = options.DOMPurify || null
 
-    configuration.theme = themes[options.theme] || 'grey'
-    configuration.badge = options.badge || null
+    configuration.theme = themes[options.theme] || themes["gray"];
+
+    // load overrides for the styling section.
+    if (options.customStyles) {
+        configuration.customStyles = Object.assign(styling, options.customStyles)
+    }
+
+    configuration.badge = options.badge || null;
 
     // we will default to false for configuration
     configuration.dismissible = options.dismissible || false
@@ -51,6 +57,7 @@ export function init(options = {}) {
     if (typeof options.fetch == 'function') {
         configuration.fetch = options.fetch
     }
+
     configuration.fetchOptions = config.fetchOptions
     configuration.fetchOptions.headers = Object.assign(config.fetchOptions.headers, options.headers)
 

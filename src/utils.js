@@ -83,6 +83,8 @@ export function getElementOptions(element) {
 /**
  * Determines if the banner has been dismissed.
  *
+ * @todo add option to check the hash on the stored value
+ *
  * @returns boolean
  */
 export function isDismissed() {

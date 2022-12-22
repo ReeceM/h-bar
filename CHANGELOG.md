@@ -3,10 +3,15 @@
 All notable changes to `h-bar` will be documented in this file.
 ## [Unreleased]
 
+- See the comparison on GitHub
+
+## [2.0.3] - 2022-12-22
+### Fixed
+- margin on the dismiss button caused issues when on mobile. #37, #30 @mariusa
+
 ## [2.0.2] - 2022-12-22
 ### Fixed
 - `customStyles` prop was ignored in version change
-
 
 ## [2.0.1] - 2022-12-21
 ### Added
@@ -85,7 +90,8 @@ Also update the readme.
 
 Before this the documented changes are vague cause it was the initial flesh of the package.
 
-[Unreleased]: https://github.com/reecem/h-bar/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/reecem/h-bar/compare/v2.0.3...HEAD
+[2.0.3]: https://github.com/reecem/h-bar/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/reecem/h-bar/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/reecem/h-bar/compare/v1.0.1...v2.0.1
 [1.1.0]: https://github.com/reecem/h-bar/compare/v1.0.1...v1.1.0

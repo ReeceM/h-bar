@@ -422,6 +422,13 @@ function styleTagTransform(css, styleElement) {
 
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ 147:
+/***/ ((module) => {
+
+module.exports = {"i8":"2.0.2"};
+
 /***/ })
 
 /******/ 	});
@@ -645,6 +652,8 @@ var themes = {
  *
  * @var {object} config
  * @var {object} config.fetchOptions
+ * @var {string} config.version
+ * @var {bool} config.production
  */
 var config = {
   fetchOptions: {
@@ -657,7 +666,10 @@ var config = {
       'Accept': 'application/json'
     },
     redirect: 'follow' // manual, *follow, error
-  }
+  },
+
+  version: (__webpack_require__(147)/* .version */ .i8),
+  production: process.env.production
 };
 ;// CONCATENATED MODULE: ./src/functions/normalise.js
 /**
@@ -753,7 +765,12 @@ function init_init() {
   configuration.url = options.url;
   // if the user has dompurify installed. It can be optional
   configuration.DOMPurify = options.DOMPurify || null;
-  configuration.theme = themes[options.theme] || 'grey';
+  configuration.theme = themes[options.theme] || themes.gray;
+
+  // load overrides for the styling section.
+  if (options.customStyles) {
+    configuration.customStyles = Object.assign(styling, options.customStyles);
+  }
   configuration.badge = options.badge || null;
 
   // we will default to false for configuration
@@ -867,6 +884,8 @@ function getElementOptions(element) {
 /**
  * Determines if the banner has been dismissed.
  *
+ * @todo add option to check the hash on the stored value
+ *
  * @returns boolean
  */
 function isDismissed() {
@@ -964,13 +983,18 @@ var Banner = /*#__PURE__*/function () {
       dismissible = _ref.dismissible,
       dismissFor = _ref.dismissFor,
       theme = _ref.theme,
-      badge = _ref.badge;
+      badge = _ref.badge,
+      _ref$customStyles = _ref.customStyles,
+      customStyles = _ref$customStyles === void 0 ? null : _ref$customStyles;
     banner_classCallCheck(this, Banner);
     this.$el = $el;
     this.dismissible = dismissible;
     this.dismissFor = dismissFor;
     this.badge = badge;
     this.theme = theme;
+
+    // use the top level styling preferences
+    this.styling = customStyles != null ? customStyles : styling;
   }
 
   /**
@@ -994,7 +1018,7 @@ var Banner = /*#__PURE__*/function () {
           var secondaryLinkList = _this.createSecondaryLinks(secondaryLinks);
           secondaryElement = newElement('div', {
             children: secondaryLinkList,
-            classes: "".concat(styling.linkWrapper, " ").concat(_this.theme.linkWrapper)
+            classes: "".concat(_this.theme.linkWrapper, " ").concat(_this.styling.linkWrapper, " ")
           });
         } else {
           secondaryElement = _this.dismissibleButton();
@@ -1002,12 +1026,12 @@ var Banner = /*#__PURE__*/function () {
         var badgeElement = null;
         if (_this.badge) {
           badgeElement = newElement('span', {
-            classes: "".concat(styling.badge, " ").concat(_this.theme.badge)
+            classes: "".concat(_this.theme.badge, " ").concat(_this.styling.badge)
           });
           badgeElement.innerText = _this.badge;
         }
         var postLink = newElement('a', {
-          classes: "".concat(styling.postTitle, " ").concat(_this.theme.postTitle)
+          classes: "".concat(_this.theme.postTitle, " ").concat(_this.styling.postTitle)
         });
         postLink.href = link;
         postLink.innerText = title;
@@ -1017,11 +1041,11 @@ var Banner = /*#__PURE__*/function () {
           postChildren.unshift(badgeElement);
         }
         var postElement = newElement('div', {
-          classes: "".concat(styling.linkWrapper, " ").concat(_this.theme.linkWrapper),
+          classes: "".concat(_this.theme.linkWrapper, " ").concat(_this.styling.linkWrapper, " "),
           children: postChildren
         });
         var _hbar = newElement('div', {
-          classes: "".concat(styling.wrapper, " ").concat(_this.theme.wrapper),
+          classes: "".concat(_this.theme.wrapper, " ").concat(_this.styling.wrapper, " "),
           children: [postElement, secondaryElement]
         });
         var container = document.querySelector(_this.$el);
@@ -1086,7 +1110,7 @@ var Banner = /*#__PURE__*/function () {
       return secondaryLinks.map(function (_ref3) {
         var title = _ref3.title,
           link = _ref3.link;
-        var style = "".concat(styling.secondaryLink, " ").concat(_this3.theme.secondaryLink);
+        var style = "".concat(_this3.theme.secondaryLink, " ").concat(_this3.styling.secondaryLink, " ");
         var butter = newElement('a', {
           classes: style
         });
@@ -1104,10 +1128,11 @@ function src_typeof(obj) { "@babel/helpers - typeof"; return src_typeof = "funct
 /**
  * h-bar banner and dynamic announcement library
  *
- * @version 2.0.0
+ * @version 2.0.2
  * @license MIT
  * @copyright @ReeceM
  */
+
 
 
 
@@ -1135,7 +1160,7 @@ function src_typeof(obj) { "@babel/helpers - typeof"; return src_typeof = "funct
  * @property {string} title Manual Override
  */
 var hBar = {
-  version: "2.0.0",
+  version: config.version,
   rendered: false,
   fetching: false,
   usingBanner: true,

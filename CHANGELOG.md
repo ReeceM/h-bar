@@ -3,6 +3,11 @@
 All notable changes to `h-bar` will be documented in this file.
 ## [Unreleased]
 
+## [2.0.2] - 2022-12-22
+### Fixed
+- `customStyles` prop was ignored in version change
+
+
 ## [2.0.1] - 2022-12-21
 ### Added
 - Templating for custom styles.
@@ -80,7 +85,8 @@ Also update the readme.
 
 Before this the documented changes are vague cause it was the initial flesh of the package.
 
-[Unreleased]: https://github.com/reecem/h-bar/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/reecem/h-bar/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/reecem/h-bar/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/reecem/h-bar/compare/v1.0.1...v2.0.1
 [1.1.0]: https://github.com/reecem/h-bar/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/reecem/h-bar/compare/v0.3.0...v1.0.1

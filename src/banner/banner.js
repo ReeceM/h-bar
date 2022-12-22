@@ -104,10 +104,10 @@ export default class Banner {
      */
     dismissibleButton() {
         let dismiss = newElement('button', {
-            classes: `hb--mr-2 hb-flex hb-p-1 hb-rounded-md ${this.theme.dismiss} hover:hb-text-white hover:hb-bg-gray-800 focus:hb-outline-none focus:hb-bg-gray-800`,
+            classes: `hb-flex hb-p-1 hb-rounded-md ${this.theme.dismiss} hover:hb-text-white hover:hb-bg-gray-800 focus:hb-outline-none focus:hb-bg-gray-800`,
         })
 
-        dismiss.innerHTML = `<svg class="hb-h-4 hb-w-4" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        dismiss.innerHTML = `<svg class="hb-h-4 hb-w-4 hover:hb-text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                   </svg>`
 

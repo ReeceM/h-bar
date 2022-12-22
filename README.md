@@ -57,6 +57,8 @@ Or use jsDelivr:
 
 You can import it directly into your javascript app or use it in the html.
 
+### Example
+
 ```html
 <script src="../hBar.js"></script>
 <!-- or -->
@@ -82,6 +84,8 @@ You can import it directly into your javascript app or use it in the html.
     hBar.fetchData()
 </script>
 ```
+
+### All config values
 
 The initialization object currently has this structure and defaults:
 
@@ -113,6 +117,21 @@ The initialization object currently has this structure and defaults:
     }
 }
 ```
+
+### Themes
+
+Theme colors available: `gray`, `lightGray`, `blue`, `green`, `indigo`, `orange`, `yellow`, `teal`, `red`
+(the below images are in the order they exits)
+
+![gray banner](docs/themes/gray.png)
+![lightGray banner](docs/themes/lightGray.png)
+![blue banner](docs/themes/blue.png)
+![green banner](docs/themes/green.png)
+![indigo banner](docs/themes/indigo.png)
+![orange banner](docs/themes/orange.png)
+![yellow banner](docs/themes/yellow.png)
+![teal banner](docs/themes/teal.png)
+![red banner](docs/themes/red.png)
 
 ### Parser function
 

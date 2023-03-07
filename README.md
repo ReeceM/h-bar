@@ -2,8 +2,8 @@
 
 An Announcement Banner that is lightweight and based on tailwindcss for the styling
 
-[![Latest Version on npm](https://img.shields.io/npm/v/@reecem/h-bar.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/h-bar)
-[![Total Downloads](https://img.shields.io/npm/dt/@reecem/h-bar.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/h-bar)
+[![npm version](https://badge.fury.io/js/%40reecem%2Fh-bar.svg)](https://www.npmjs.com/package/@reecem/h-bar)
+[![Total Downloads](https://img.shields.io/npm/dt/@reecem/h-bar.svg )](https://www.npmjs.com/package/@reecem/h-bar)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@reecem/h-bar)
 
 <h1 align="center">
@@ -47,7 +47,7 @@ npm i @reecem/h-bar
 Or use jsDelivr:
 ```html
     ...
-    <script src"https://cdn.jsdelivr.net/npm/@reecem/h-bar@latest/dist/hBar.min.js"></script>
+    <script src="https://unpkg.com/@reecem/h-bar?umd"></script>
     ...
 ```
 
@@ -57,10 +57,12 @@ Or use jsDelivr:
 
 You can import it directly into your javascript app or use it in the html.
 
+### Example
+
 ```html
 <script src="../hBar.js"></script>
 <!-- or -->
-<script src"https://cdn.jsdelivr.net/npm/@reecem/h-bar@latest/dist/hBar.min.js" defer></script>
+<script src="https://unpkg.com/@reecem/h-bar?umd" defer></script>
 <script>
     hBar.init({
         url: "http://blog.example.com/wp-json/wp/v2/posts?per_page=1&_fields=id,excerpt,title,link",
@@ -82,6 +84,8 @@ You can import it directly into your javascript app or use it in the html.
     hBar.fetchData()
 </script>
 ```
+
+### All config values
 
 The initialization object currently has this structure and defaults:
 
@@ -113,6 +117,21 @@ The initialization object currently has this structure and defaults:
     }
 }
 ```
+
+### Themes
+
+Theme colors available: `gray`, `lightGray`, `blue`, `green`, `indigo`, `orange`, `yellow`, `teal`, `red`
+(the below images are in the order they exits)
+
+![gray banner](docs/themes/gray.png)
+![lightGray banner](docs/themes/lightGray.png)
+![blue banner](docs/themes/blue.png)
+![green banner](docs/themes/green.png)
+![indigo banner](docs/themes/indigo.png)
+![orange banner](docs/themes/orange.png)
+![yellow banner](docs/themes/yellow.png)
+![teal banner](docs/themes/teal.png)
+![red banner](docs/themes/red.png)
 
 ### Parser function
 

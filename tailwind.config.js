@@ -1,8 +1,12 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
+    content: [
+        './src/**/*.js',
+    ],
+    prefix: 'hb-',
     theme: {
         extend: {},
     },
-    prefix: 'hb-',
     variants: {
         margin: ['first', 'last']
     },

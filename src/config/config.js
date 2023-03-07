@@ -3,6 +3,8 @@
  *
  * @var {object} config
  * @var {object} config.fetchOptions
+ * @var {string} config.version
+ * @var {bool} config.production
  */
 export const config = {
     fetchOptions: {
@@ -13,5 +15,7 @@ export const config = {
             'Accept': 'application/json',
         },
         redirect: 'follow', // manual, *follow, error
-    }
+    },
+    version: require('../../package.json').version,
+    production: process.env.production
 }

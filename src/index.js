@@ -1,17 +1,18 @@
 /**
  * h-bar banner and dynamic announcement library
  *
- * @version 2.0.0
+ * @version 2.0.2
  * @license MIT
  * @copyright @ReeceM
  */
 import "./styles.css"
 
-import { init } from './functions/init';
+import { init } from './functions/init'
 import { normaliser } from "./functions/normalise"
-import { getElementOptions, isDismissed } from "./utils";
-import Renderer from './functions/renderer';
-import Banner from './banner/banner';
+import { getElementOptions, isDismissed } from "./utils"
+import Renderer from './functions/renderer'
+import Banner from './banner/banner'
+import { config } from "./config/config"
 
 /**
  * Set all the configuration options for the hBar library
@@ -33,7 +34,7 @@ import Banner from './banner/banner';
  * @property {string} title Manual Override
  */
 const hBar = {
-    version: "2.0.0",
+    version: config.version,
     rendered: false,
     fetching: false,
     usingBanner: true,
@@ -58,17 +59,17 @@ const hBar = {
     init: function (options = {}) {
         Object.assign(this, init(options))
 
-        this.$elementOpt = getElementOptions(document.querySelector(this.$el));
+        this.$elementOpt = getElementOptions(document.querySelector(this.$el))
 
         if (this.$elementOpt.template) {
-            this.renderer = new Renderer(this.$elementOpt.template, this.DOMPurify);
+            this.renderer = new Renderer(this.$elementOpt.template, this.DOMPurify)
         } else if (options.renderer) {
             /**
              * @todo this was added on a whim... bad idea possibly
              */
-            this.renderer = new options.renderer(this);
+            this.renderer = new options.renderer(this)
         } else {
-            this.renderer = new Banner(this);
+            this.renderer = new Banner(this)
         }
 
         Object.defineProperties(this, {
@@ -86,11 +87,11 @@ const hBar = {
      */
     fetch: function () {
 
-        if (this.rendered) return;
+        if (this.rendered) return
 
-        if (isDismissed()) return;
+        if (isDismissed()) return
 
-        this.fetching = true;
+        this.fetching = true
 
         fetch(this.url, this.fetchOptions)
             .then(response => {
@@ -98,18 +99,18 @@ const hBar = {
             })
             .then(json => {
                 if (typeof json == "object") {
-                    this.render(json);
+                    this.render(json)
                 } else {
-                    console.error(`${this.url} Did not return an object`);
+                    console.error(`${this.url} Did not return an object`)
                 }
 
-                this.fetching = false;
+                this.fetching = false
             })
             .catch(error => {
-                console.error(error);
-                this.fetching = false;
-                this.rendered = false;
-            });
+                console.error(error)
+                this.fetching = false
+                this.rendered = false
+            })
     },
 
     /**
@@ -121,22 +122,22 @@ const hBar = {
 
         normaliser(result)
             .then((result) => {
-                let element = document.querySelector(this.$el);
+                let element = document.querySelector(this.$el)
 
                 element.innerHTML = this.renderer.resolve(result)
-                element.__hbar__ = this;
+                element.__hbar__ = this
 
                 this.rendered = true
 
-                this.onCompleted({ __hbar__: this, result: element });
+                this.onCompleted({ __hbar__: this, result: element })
             })
             .catch(error => {
                 console.error(error)
-                this.destroy();
-                this.fetching = false;
-                this.rendered = false;
-                this.onFailure({__hbar__: this})
-            });
+                this.destroy()
+                this.fetching = false
+                this.rendered = false
+                this.onFailure({ __hbar__: this })
+            })
     },
 
     /**
@@ -147,13 +148,13 @@ const hBar = {
      */
     destroy: function () {
         try {
-            document.querySelector(this.$el).innerHTML = '';
-            return true;
+            document.querySelector(this.$el).innerHTML = ''
+            return true
         } catch (error) {
             console.error('Unable to destroy the h-bar wrapper')
             console.error(error)
         }
-        return false;
+        return false
     },
 }
 
@@ -173,6 +174,6 @@ Object.defineProperties(hBar, {
         writable: false,
         configurable: false,
     }
-});
+})
 
-export default hBar;
+export default hBar

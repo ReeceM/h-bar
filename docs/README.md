@@ -119,6 +119,21 @@ The initialization object currently has this structure and defaults:
 }
 ```
 
+### Themes
+
+Theme colors available: `gray`, `lightGray`, `blue`, `green`, `indigo`, `orange`, `yellow`, `teal`, `red`
+(the below images are in the order they exits)
+
+![gray banner](themes/gray.png)
+![lightGray banner](themes/lightGray.png)
+![blue banner](themes/blue.png)
+![green banner](themes/green.png)
+![indigo banner](themes/indigo.png)
+![orange banner](themes/orange.png)
+![yellow banner](themes/yellow.png)
+![teal banner](themes/teal.png)
+![red banner](themes/red.png)
+
 ### Parser function
 
 There is the availability of adding a custom parser function to override any of the default ones provided by the package.

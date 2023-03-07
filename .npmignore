@@ -4,3 +4,7 @@ postcss.config.js
 tailwind.config.js
 .editorconfig
 .github
+.vscode
+CHANGELOG.md
+CONTRIBUTING.md
+package-lock.json

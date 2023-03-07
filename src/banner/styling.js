@@ -8,7 +8,7 @@
 export const styling = {
     wrapper: "hb-flex hb-w-full hd-flex-col md:hb-flex-row hb-text-sm hb-py-2 md:hb-px-20 hb-px-1 hb-items-center hb-justify-between",
     linkWrapper: "hb-flex hb-items-center",
-    badge: "hb-px-2 hb-mx-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs",
+    badge: "hb-px-2 hb-mr-2 hb-leading-relaxed hb-tracking-wider hb-uppercase hb-font-semibold hb-rounded-full hb-text-xs",
     postTitle: "hover:hb-underline hb-inline-flex hb-items-center",
     secondaryLink: "hb-mx-5 hb-cursor-pointer hover:hb-underline",
 }

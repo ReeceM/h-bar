@@ -2,12 +2,25 @@
 
 All notable changes to `h-bar` will be documented in this file.
 ## [Unreleased]
+
+- See the comparison on GitHub
+
+## [2.0.3] - 2022-12-22
+### Fixed
+- margin on the dismiss button caused issues when on mobile. #37, #30 @mariusa
+
+## [2.0.2] - 2022-12-22
+### Fixed
+- `customStyles` prop was ignored in version change
+
+## [2.0.1] - 2022-12-21
 ### Added
 - Templating for custom styles.
 - Move the original default banner to separate class
 
 ### Changed
 - Initializing the class has changed in the values passed
+- Changed to make banner optional #31 @mariusa
 
 # [1.1.0] - 2020-05-15
 
@@ -77,10 +90,13 @@ Also update the readme.
 
 Before this the documented changes are vague cause it was the initial flesh of the package.
 
-[Unreleased]: https://github.com/reecem/h-bar/compare/v1.1.0...HEAD
-[1.1.0]: https://github.com/reecem/h-bar/tags/v1.1.0
-[1.0.1]: https://github.com/reecem/h-bar/tags/v1.0.1
-[0.3.0]: https://github.com/reecem/h-bar/tags/v0.3.0
-[0.2.1]: https://github.com/reecem/h-bar/tags/v0.2.1
-[0.2.0]: https://github.com/reecem/h-bar/tags/v0.2.0
-[0.1.0]: https://github.com/reecem/h-bar/tags/v0.1.0
+[Unreleased]: https://github.com/reecem/h-bar/compare/v2.0.3...HEAD
+[2.0.3]: https://github.com/reecem/h-bar/compare/v2.0.2...v2.0.3
+[2.0.2]: https://github.com/reecem/h-bar/compare/v2.0.1...v2.0.2
+[2.0.1]: https://github.com/reecem/h-bar/compare/v1.0.1...v2.0.1
+[1.1.0]: https://github.com/reecem/h-bar/compare/v1.0.1...v1.1.0
+[1.0.1]: https://github.com/reecem/h-bar/compare/v0.3.0...v1.0.1
+[0.3.0]: https://github.com/reecem/h-bar/compare/v0.2.1...v0.3.0
+[0.2.1]: https://github.com/reecem/h-bar/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/reecem/h-bar/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/reecem/h-bar/releases/tag/v0.1.0

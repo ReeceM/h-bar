@@ -1,6 +1,7 @@
 import { styling, themes } from '../banner/styling';
 import { config } from '../config/config'
 import { initNormalise } from "./normalise"
+import storage, { Session } from './state'
 
 /**
  * Set all the configuration options for the hBar library
@@ -11,6 +12,7 @@ import { initNormalise } from "./normalise"
  * @param {string} options.url
  * @param {boolean} options.dismissible
  * @param {Date|boolean} options.dismissFor
+ * @param {string} options.dismissStorage the location to save the dismissal (local / session)
  * @param {string} options.badge
  * @param {array} options.secondaryLinks
  * @param {object} options.headers
@@ -60,6 +62,16 @@ export function init(options = {}) {
 
     configuration.fetchOptions = config.fetchOptions
     configuration.fetchOptions.headers = Object.assign(config.fetchOptions.headers, options.headers)
+
+    /**
+     * Default to the localStorage option.
+     * If neither are available we default to a null storage.
+     */
+    if (options.dismissStorage === 'session') {
+        storage.drive = new Session(options.dismissKey)
+    }
+
+    configuration.storage = storage
 
     initNormalise(options.parser || null)
 

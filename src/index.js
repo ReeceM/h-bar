@@ -32,6 +32,7 @@ import { config } from "./config/config"
  * @property {function} onFailure
  * @property {string} link Manual override
  * @property {string} title Manual Override
+ * @property {Object} storage
  */
 const hBar = {
     version: config.version,

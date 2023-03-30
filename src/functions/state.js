@@ -73,6 +73,11 @@ export class Local {
      * @returns void
      */
     save(data) {
+
+        if (data instanceof Map) {
+            data = Object.fromEntries(data)
+        }
+
         if (data instanceof Object) {
             data = JSON.stringify(data)
         }
@@ -80,12 +85,24 @@ export class Local {
         return window.localStorage.setItem(this.key, data)
     }
 
+    /**
+     * Gets the object list from the storage
+     * @returns {Map}
+     */
     get() {
-        return JSON.parse(window.localStorage.getItem(this.key)) ?? defaultValue
+        const stored = JSON.parse(window.localStorage.getItem(this.key)) ?? []
+
+        return new Map(Object.entries(stored))
     }
 
     forget(hash) {
-        return true
+        const data = this.get()
+
+        if (!data.has(hash)) {
+            return null
+        }
+
+        return data.delete(hash)
     }
 }
 
@@ -99,7 +116,18 @@ export class Session {
         this.key = key
     }
 
+    /**
+     * Saves the data to the session storage
+     *
+     * @param {string|object|array} data Data to store
+     * @returns void
+     */
     save(data) {
+
+        if (data instanceof Map) {
+            data = Object.fromEntries(data)
+        }
+
         if (data instanceof Object) {
             data = JSON.stringify(data)
         }
@@ -107,12 +135,24 @@ export class Session {
         return window.sessionStorage.setItem(this.key, data)
     }
 
+    /**
+     * Gets the object list from the storage
+     * @returns {Map}
+     */
     get() {
-        return JSON.parse(window.sessionStorage.getItem(this.key)) ?? defaultValue
+        const stored = JSON.parse(window.sessionStorage.getItem(this.key)) ?? []
+
+        return new Map(Object.entries(stored))
     }
 
     forget(hash) {
-        //
+        const data = this.get()
+
+        if (!data.has(hash)) {
+            return null
+        }
+
+        return data.delete(hash)
     }
 }
 
@@ -137,33 +177,40 @@ const storage = {
         this.saved = callback
     },
 
-    store(data) {
-        let closed = this.drive.get()
-
-        closed.push(data)
-
-        this.saved(
-            this.drive.save(closed)
-        )
-    },
-
     /**
      * This checks with the saved data if the
      *
-     * @param {Object|string} content
-     * @returns
+     * @param {object|string} content
+     * @returns void
      */
-    seen(content) {
+    store(data) {
         let closed = this.drive.get()
         let hashed = hash(
             content instanceof 'object' ? JSON.stringify(content) : content
         )
 
-        if (closed.find(element => hashed === element) !== undefined) {
-            return true
+        closed.set(hashed, data)
+
+        this.saved(this.drive.save(closed))
+    },
+
+    /**
+     * This checks with the saved data if the
+     *
+     * @param {object|string} content
+     * @returns {bool}
+     */
+    seen(content) {
+        if (content == null) {
+            return false;
         }
 
-        return false
+        let closed = this.drive.get()
+        let hashed = hash(
+            content instanceof 'object' ? JSON.stringify(content) : content
+        )
+
+        return closed.has(hashed) ? true : false
     }
 }
 

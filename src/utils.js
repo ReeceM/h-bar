@@ -1,3 +1,11 @@
+/**
+ * This is the general utils file for the pacakge.
+ * Most of the code is a collection of helpers, some I wrote, others have been given credit.
+ *
+ * @copyright ReeceM
+ */
+import storage from "./functions/state"
+
 // Thanks @stimulus: and I got it from @alpinejs
 // https://github.com/stimulusjs/stimulus/blob/master/packages/%40stimulus/core/src/application.ts
 export function domReady() {
@@ -84,24 +92,19 @@ export function getElementOptions(element) {
  * Determines if the banner has been dismissed.
  *
  * @todo add option to check the hash on the stored value
+ * // this should come from the state management setup
  *
+ * @param {object|string} content this is used to check the hash on the state lib
  * @returns boolean
  */
-export function isDismissed() {
+export function isDismissed(content = null) {
+    if (!localStorage) return false
 
-    if (localStorage) {
-        var dismissDate = localStorage.getItem('h-bar_dismiss_for')
-        if (!dismissDate) {
-            return false
-        }
+    if (storage.seen(content)) return true
 
-        dismissDate = dismissDate
-        var ourDate = (new Date()).getTime()
+    const dismissDate = localStorage.getItem('h-bar_dismiss_for')
 
-        if (ourDate <= dismissDate) {
-            return true
-        }
-    }
+    if (!dismissDate) return false
 
-    return false
+    return (new Date()).getTime() <= dismissDate ? true : false
 }
